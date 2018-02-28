@@ -5,4 +5,6 @@ We will be using django framework, its fairly easy. Also have added the virtual 
 Remember the virtual env. is built using python3 binaries, so this means we will be doing everything in python3 :)
 
 ### Activate the env. 
-```source webenv/bin/activate```
+
+```$ source webenv/bin/activate```
+
