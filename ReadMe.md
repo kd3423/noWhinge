@@ -8,3 +8,6 @@ Remember the virtual env. is built using python3 binaries, so this means we will
 
 ```$ source webenv/bin/activate```
 
+### Run the server locally
+
+```$ python3 manage.py runserver```
