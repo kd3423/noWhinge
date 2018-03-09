@@ -1,0 +1,230 @@
+<!-- AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg -->
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>noWhinge</title>
+<!-- google maps -->
+    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/pricing.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      <script>
+        function initMap() {
+          var myLatLng = {lat: 28.696423, lng: 77.194936};
+
+          // Create a map object and specify the DOM element for display.
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: myLatLng,
+            zoom: 14
+          });
+
+          // Create a marker and set its position.
+          var marker = new google.maps.Marker({
+            map: map,
+            position: myLatLng,
+            title: 'Model Town',
+            draggable: true
+          });
+
+          google.maps.event.addListener(marker,'position_changed',function(){
+            var lat = marker.getPosition().lat();
+            var lng = marker.getPosition().lng();
+            document.getElementById("myLat").innerHTML = lat;
+            document.getElementById("myLon").innerHTML = lng;
+            $('#lat').val(lat);
+            $('#lng').val(lng);
+            });
+        }
+
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg&callback=initMap"
+          async defer></script>
+
+  </head>
+
+
+
+  <body onload="initMap()">
+
+    {% include 'navbar.html' %}
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-5">Log a Complaint</h1>
+    </div>
+
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div id="map" style="width:650px;height:650px;background:gray"></div>
+        
+        
+        <div class="card mb-4">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Register a Complaint</h4>
+          </div>
+          <div class="card-body">
+            
+            <form>
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label>First name</label>
+                  <input type="text" class="form-control" placeholder="First name" value="Karan" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label>Last name</label>
+                  <input type="text" class="form-control" placeholder="Last name" value="Dabas" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>  
+              </div>
+              
+              <div class ="form-row">
+                  <p>Lat:<span id="myLat">  </span></p>
+                  <p> Lng:<span id="myLon"></span></p>
+              </div>
+
+              <label class="my-0.2 mr-2" for="inlineFormCustomSelectPref">Select issue Tag</label>
+              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                <option selected>Choose...</option>
+                <option value="1">Road Maintenance</option>
+                <option value="2">Water Related</option>
+                <option value="3">Electricity Related</option>
+              </select>
+
+              <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <label for="validationServer03">Locality</label>
+                  <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Example: Model Town" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid locality.
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Problem Description</span>
+                </div>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+
+              <div class="custom-file my-4">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Attach an Image</label>
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+                  <label class="form-check-label" for="invalidCheck3">
+                    Agree to terms and conditions
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <!-- <script>
+        function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(51.5, -0.12),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+      </script>
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg&callback=myMap">
+        
+      </script> -->
+      <!--
+      To use this code on your website, get a free API key from Google.
+      Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+      -->
+
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <!-- <img class="mb-2" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24"> -->
+            <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Cool stuff</a></li>
+              <li><a class="text-muted" href="#">Random feature</a></li>
+              <li><a class="text-muted" href="#">Team feature</a></li>
+              <li><a class="text-muted" href="#">Stuff for developers</a></li>
+              <li><a class="text-muted" href="#">Another one</a></li>
+              <li><a class="text-muted" href="#">Last time</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Resource</a></li>
+              <li><a class="text-muted" href="#">Resource name</a></li>
+              <li><a class="text-muted" href="#">Another resource</a></li>
+              <li><a class="text-muted" href="#">Final resource</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Team</a></li>
+              <li><a class="text-muted" href="#">Locations</a></li>
+              <li><a class="text-muted" href="#">Privacy</a></li>
+              <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/holder.min.js' %}"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+  </body>
+</html>
