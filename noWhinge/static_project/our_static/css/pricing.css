@@ -7,19 +7,32 @@ html {
   }
 }
 
-.container {
-  max-width: 960px;
-}
-
-.pricing-header {
-  max-width: 700px;
-}
-
-.card-deck .card {
-  min-width: 220px;
-}
-
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.search_home{
+    width: 500px; //centered in the middle of the page
+    right: 0;
+    left: 33%;
+    top: 60%;
+    position: absolute;
+}
+
+.search_btn{
+    left: 60%;
+    top : 60%;
+    position: absolute;
+}
+
+
+.pricing-header{
+    left : 40%;
+    top : 30%;
+    position: absolute;
+}
+
+.navbar{
+    background-color: #ffff00;
+}
