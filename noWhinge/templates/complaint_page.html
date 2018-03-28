@@ -43,8 +43,8 @@
           google.maps.event.addListener(marker,'position_changed',function(){
             var lat = marker.getPosition().lat();
             var lng = marker.getPosition().lng();
-            document.getElementById("myLat").innerHTML = lat;
-            document.getElementById("myLon").innerHTML = lng;
+            document.getElementById("myLat").value = lat;
+            document.getElementById("myLon").value = lng;
             $('#lat').val(lat);
             $('#lng').val(lng);
             });
@@ -75,31 +75,47 @@
           </div>
           <div class="card-body">
 
-            <form>
+            <form name = "form" enctype = "multipart/form-data" 
+         action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
               <div class="form-row">
                 <div class="col-md-4 mb-3">
                   <label>First name</label>
-                  <input type="text" class="form-control" placeholder="First name" value="Karan" required>
+                  <input type="text" class="form-control" placeholder="First name" name="first_name" value="Karan" required>
                   <div class="valid-feedback">
                     Looks good!
                   </div>
                 </div>
                 <div class="col-md-4 mb-3">
                   <label>Last name</label>
-                  <input type="text" class="form-control" placeholder="Last name" value="Dabas" required>
+                  <input type="text" class="form-control" placeholder="Last name" name="last_name" value="Dabas" required>
                   <div class="valid-feedback">
                     Looks good!
                   </div>
                 </div>
               </div>
 
+              <div class="col-md-4 mb-3">
+                  <label>Latitude</label>
+                  <input type="text" class="form-control" id="myLat" placeholder="Latitude" name="lat" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label>Longitude</label>
+                  <input type="text" class="form-control" id="myLon" placeholder="Longitude" name="lon" value="" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+<!-- 
               <div class ="form-row">
-                  <p>Lat:<span id="myLat">  </span></p>
-                  <p> Lng:<span id="myLon"></span></p>
-              </div>
+                  <p>Lat:<span id="myLat" >  </span></p>
+                  <p> Lng:<span id="myLon" ></span></p>
+              </div> -->
 
               <label class="my-0.2 mr-2" for="inlineFormCustomSelectPref">Select issue Tag</label>
-              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+              <select class="custom-select my-1 mr-sm-2" name="issue" id="inlineFormCustomSelectPref">
                 <option selected>Choose...</option>
                 <option value="1">Road Maintenance</option>
                 <option value="2">Water Related</option>
@@ -109,7 +125,7 @@
               <div class="form-row">
                 <div class="col-md-12 mb-3">
                   <label for="validationServer03">Locality</label>
-                  <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Example: Model Town" required>
+                  <input type="text" class="form-control is-valid" id="validationServer03" name="locality" placeholder="Example: Model Town" required>
                   <div class="invalid-feedback">
                     Please provide a valid locality.
                   </div>
@@ -120,7 +136,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">Problem Description</span>
                 </div>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <textarea class="form-control" name="desc" aria-label="With textarea"></textarea>
               </div>
 
               <div class="custom-file my-4">
@@ -134,9 +150,6 @@
                   <label class="form-check-label" for="invalidCheck3">
                     Agree to terms and conditions
                   </label>
-                  <div class="invalid-feedback">
-                    You must agree before submitting.
-                  </div>
                 </div>
               </div>
               <button class="btn btn-primary" type="submit">Submit form</button>
