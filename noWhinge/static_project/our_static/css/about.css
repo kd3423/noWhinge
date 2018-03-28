@@ -1,0 +1,14 @@
+.navbar{
+    background-color: #ffff00;
+}
+
+.about_header{
+    text-align: center;
+    position: relative;
+    padding: 100px 50px 0px 50px;
+}
+
+.about_text{
+    text-align: center;
+    padding:0px 500px 0px 500px;
+}
