@@ -23,95 +23,32 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
       <script>
-        //  function initMap() { 
-        //   var myLatLng = {lat: 28.696423, lng: 77.194936};
-
-        //   // Create a map object and specify the DOM element for display.
-        //   var map = new google.maps.Map(document.getElementById('map'), {
-        //     center: myLatLng,
-        //     zoom: 14
-        //   });
-
-        //   // Create a marker and set its position.
-        //   var marker = new google.maps.Marker({
-        //     map: map,
-        //     position: myLatLng,
-        //     title: 'Model Town',
-        //     draggable: true
-        //   });
-
-        //   google.maps.event.addListener(marker,'position_changed',function(){
-        //     var lat = marker.getPosition().lat();
-        //     var lng = marker.getPosition().lng();
-        //     document.getElementById("myLat").innerHTML = lat;
-        //     document.getElementById("myLon").innerHTML = lng;
-        //     $('#lat').val(lat);
-        //     $('#lng').val(lng);
-        //     });
-        // } 
-
-
         function initMap() {
-        var myLatLng = {lat: 28.696423, lng: 77.194936};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14,
-          center: myLatLng
-        });
+          var myLatLng = {lat: 28.696423, lng: 77.194936};
 
-        var marker = new google.maps.Marker({
+          // Create a map object and specify the DOM element for display.
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: myLatLng,
+            zoom: 14
+          });
+
+          // Create a marker and set its position.
+          var marker = new google.maps.Marker({
             map: map,
             position: myLatLng,
             title: 'Model Town',
             draggable: true
           });
 
-        var geocoder = new google.maps.Geocoder;
-        var infowindow = new google.maps.InfoWindow;
-
-        google.maps.event.addListener(marker,'position_changed',function(){
+          google.maps.event.addListener(marker,'position_changed',function(){
             var lat = marker.getPosition().lat();
             var lng = marker.getPosition().lng();
-            //document.getElementById("myLat").innerHTML = lat;
-            //document.getElementById("myLon").innerHTML = lng;
+            document.getElementById("myLat").innerHTML = lat;
+            document.getElementById("myLon").innerHTML = lng;
             $('#lat').val(lat);
             $('#lng').val(lng);
-          	geocodeLatLng(geocoder, map, infowindow);  
-          	window.alert('TTT');
             });
-
-
-        // var geocoder = new google.maps.Geocoder;
-        // var infowindow = new google.maps.InfoWindow;
-
-        document.getElementById(marker).addEventListener('position_changed', function() {
-          geocodeLatLng(geocoder, map, infowindow);
-          window.alert('TTT');
-        });
-      }
-
-        function geocodeLatLng(geocoder, map, infowindow) {
-        var input = document.getElementById('myLatLng').value;
-        var latlngStr = input.split(',', 2);
-        var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-        geocoder.geocode({'location': latlng}, function(results, status) {
-          if (status === 'OK') {
-            if (results[0]) {
-              // map.setZoom(11);
-              window.alert('YEAYAYAY');
-              // var marker = new google.maps.Marker({
-              //   position: latlng,
-              //   map: map
-              // });
-              // infowindow.setContent(results[0].formatted_address);
-              // infowindow.open(map, marker);
-            } else {
-              window.alert('No results found');
-            }
-          } else {
-            window.alert('Geocoder failed due to: ' + status);
-          }
-        });
-      }
+        }
 
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg&callback=initMap"
