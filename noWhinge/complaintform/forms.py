@@ -10,8 +10,12 @@ class ComplaintForm(forms.Form):
 	# issue = forms.MultipleChoiceField(widget=forms.CheckboxSelect,choices=OPTIONS)
 	# locality = forms.MultipleChoiceField()
 	desc = forms.CharField(max_length=1500)
+	photo = forms.ImageField()
 	# file = forms.FileField()
 	
+	def clean_first_name(self):
+		return self.cleaned_data.get("photo")
+
 	def clean_first_name(self):
 		return self.cleaned_data.get("first_name")
 

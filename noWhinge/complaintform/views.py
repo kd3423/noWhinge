@@ -18,10 +18,10 @@ def complaint_page(request):
 	if request.method == "POST":
 		#Get the posted form
 		print(request.POST)
-		MyProfileForm = ComplaintForm(request.POST)
+		MyProfileForm = ComplaintForm(request.POST,request.FILES)
 		print('after request')
 		print(MyProfileForm.is_valid())
-
+		
 		if MyProfileForm.is_valid():
 			print('before Complaints')
 			profile = Complaints()
@@ -34,6 +34,7 @@ def complaint_page(request):
 			profile.lat=MyProfileForm.cleaned_data['lat']
 			profile.lon=MyProfileForm.cleaned_data['lon']
 			profile.date=datetime.datetime.now()
+			profile.photo=MyProfileForm.cleaned_data['photo']
 			print('before save')
 			profile.save()
 			print('post save')
