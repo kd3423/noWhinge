@@ -1,32 +1,33 @@
 from django import forms
 
 class ComplaintForm(forms.Form):
-	OPTIONS = (("a", "A"),("b", "B"),)
 	first_name = forms.CharField()
 	last_name = forms.CharField()
-	date = forms.DateTimeField()
 	lat = forms.DecimalField()
 	lon = forms.DecimalField()
 	issue = forms.CharField()
 	locality = forms.CharField()
 	# issue = forms.MultipleChoiceField(widget=forms.CheckboxSelect,choices=OPTIONS)
 	# locality = forms.MultipleChoiceField()
-	problem_description = forms.CharField(max_length=1500,
-        widget=forms.Textarea())
-	file = forms.FileField()
+	desc = forms.CharField(max_length=1500)
+	# file = forms.FileField()
 	
 	def clean_first_name(self):
-		return first_name
+		return self.cleaned_data.get("first_name")
 
 	def clean_last_name(self):
-		return last_name
-	def clean_date(self):
-		return date
+		return self.cleaned_data.get("last_name")
+	
 	def clean_lat(self):
-		return lat
+		return self.cleaned_data.get("lat")
 	def clean_lon(self):
-		return lon
+		return self.cleaned_data.get("lon")
+
 	def clean_issue(self):
-		return issue
-	def clean_problem(self):
-		return problem_description
+		return self.cleaned_data.get("issue")
+
+	def clean_desc(self):
+		return self.cleaned_data.get("desc")
+
+	def clean_locality(self):
+		return self.cleaned_data.get("locality")

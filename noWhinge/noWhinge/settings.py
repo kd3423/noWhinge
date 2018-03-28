@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'contact',
 	'accounts',
     'widget_tweaks',
+    'complaintform',
 ]
 
 MIDDLEWARE = [
