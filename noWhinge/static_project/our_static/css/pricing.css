@@ -12,7 +12,7 @@ html {
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
-.search_home{
+/* .search_home{
     width: 500px; //centered in the middle of the page
     right: 0;
     left: 33%;
@@ -21,11 +21,25 @@ html {
 }
 
 .search_btn{
-    left: 60%;
+    left: 60.5%;
     top : 60%;
+    position: absolute;
+} */
+
+.search_bar{
+    width: 1000px;
+    left: 33%;
+    top: 60%;
     position: absolute;
 }
 
+.search_bar > div{
+    float: left;
+}
+
+#search_home{
+    width: 500px;
+}
 
 .pricing-header{
     left : 40%;
