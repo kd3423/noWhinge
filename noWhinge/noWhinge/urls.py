@@ -23,15 +23,26 @@ from contact import views
 import contact
 from noWhinge import views
 import noWhinge
+from complaintform import views
+import complaintform
+
+
 urlpatterns = [
 	path('', newsletter.views.home, name='home'),
 	path('contact/', contact.views.contact, name='contact'),
+<<<<<<< HEAD
     path('complaint_page/', noWhinge.views.complaint_page, name='complaint_page'),
     path('about_page/', noWhinge.views.about_page, name='about_page'),
     path('contact_page/', noWhinge.views.contact_page, name='contact_page'),
+=======
+    path('complaint_page/', complaintform.views.complaint_page, name='complaint_page'),
+>>>>>>> d5f010d7d985c0cde01266a0ffb07f1652938cb5
     path('admin/', admin.site.urls),
 	path('accounts/', include('accounts.urls')),
 	path('accounts/', include('django.contrib.auth.urls')),
+    # path('test/',noWhinge.views.complaintpage,name='test')
+    # path('l/', complaintform.views.SaveProfile, name='SaveProfile'),
+    
 ]
 
 if settings.DEBUG:
