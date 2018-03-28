@@ -34,6 +34,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 	path('accounts/', include('accounts.urls')),
 	path('accounts/', include('django.contrib.auth.urls')),
+    # path('test/',noWhinge.views.complaintpage,name='test')
     # path('l/', complaintform.views.SaveProfile, name='SaveProfile'),
     
 ]
