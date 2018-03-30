@@ -31,7 +31,7 @@ urlpatterns = [
 	path('', newsletter.views.home, name='home'),
 	path('contact/', contact.views.contact, name='contact'),
 	path('about_page/', noWhinge.views.about_page, name='about_page'),
-    path('contact_page/', noWhinge.views.contact_page, name='contact_page'),
+    # path('contact_page/', noWhinge.views.contact_page, name='contact_page'),
     path('complaint_page/', complaintform.views.complaint_page, name='complaint_page'),
     path('admin/', admin.site.urls),
 	path('accounts/', include('accounts.urls')),
