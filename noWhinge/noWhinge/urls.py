@@ -36,6 +36,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 	path('accounts/', include('accounts.urls')),
 	path('accounts/', include('django.contrib.auth.urls')),
+    path('auth/', include('social_django.urls', namespace='social')),
     # path('test/',noWhinge.views.complaintpage,name='test')
     # path('l/', complaintform.views.SaveProfile, name='SaveProfile'),
     

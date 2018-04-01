@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .forms import ComplaintForm 
 from .settings import MEDIA_ROOT
 
+
+
 # Create your views here.
 def complaint_page(request):
 	return render(request,"complaint_page.html",{})
@@ -20,6 +22,8 @@ def complaintpage(request):
 	# return render(request,"complaintform.html",context)
 	return render(request,"complaint_page.html",context)
 
+def home(request):
+	return render(request, 'home.html')
 
 	
 
