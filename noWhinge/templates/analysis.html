@@ -1,0 +1,68 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>noWhinge</title>
+<!-- google maps -->
+    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/analysis.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="analysis_header">
+        <h1>Locality Analysis</h1>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Locality</button>
+      <div class="dropdown-content">
+        <a>Model Town</a>
+        <a>Malviya Nagar</a>
+        <a>IIITD</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Issue</button>
+      <div class="dropdown-content">
+        <a>Road Maintainence</a>
+        <a>Water</a>
+        <a>Electricity</a>
+      </div>
+    </div>
+
+    <!-- <div class="img">
+        <img src="https://drive.google.com/file/d/1qwgGwQTX6Kf0_Ezgdab6Oj2AZwnBVqTM/view?usp=sharing" alt="Early November Snow"/>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="container1">
+        <center>
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+        </form>
+    </center>
+    </div> -->
+    <!-- Add font awesome icons -->
+    <!-- <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a> -->
+
+</body>
