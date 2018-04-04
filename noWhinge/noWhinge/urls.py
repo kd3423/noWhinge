@@ -33,10 +33,12 @@ urlpatterns = [
 	path('about_page/', noWhinge.views.about_page, name='about_page'),
     # path('contact_page/', noWhinge.views.contact_page, name='contact_page'),
     path('complaint_page/', complaintform.views.complaint_page, name='complaint_page'),
+    path('analysis_page/', noWhinge.views.analysis_page, name='analysis_page'),
     path('admin/', admin.site.urls),
 	path('accounts/', include('accounts.urls')),
 	path('accounts/', include('django.contrib.auth.urls')),
     path('auth/', include('social_django.urls', namespace='social')),
+
     # path('test/',noWhinge.views.complaintpage,name='test')
     # path('l/', complaintform.views.SaveProfile, name='SaveProfile'),
     
