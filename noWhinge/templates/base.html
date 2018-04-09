@@ -18,7 +18,65 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+	<!-- code to find location from home page -->
+	<script src="https://code.jquery.com/jquery.js"></script> 
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" async defer></script>
+	<script>
+	function searchLocation(number){
+			
+	var currgeocoder;
+    //Set geo location lat and long
+    navigator.geolocation.getCurrentPosition(function (position, html5Error) {
+        geo_loc = processGeolocationResult(position);
+        currLatLong = geo_loc.split(",");
+        initializeCurrent(currLatLong[0], currLatLong[1]);
+    },function(e){console.log(e);},{timeout:10000});
 
+    //Get geo location result
+    function processGeolocationResult(position) {
+        html5Lat = position.coords.latitude; //Get latitude
+        html5Lon = position.coords.longitude; //Get longitude
+        html5TimeStamp = position.timestamp; //Get timestamp
+        html5Accuracy = position.coords.accuracy; //Get accuracy in meters
+        return (html5Lat).toFixed(8) + ", " + (html5Lon).toFixed(8);
+    }
+
+    //Check value is present or
+    function initializeCurrent(latcurr, longcurr) {
+		//document.getElementById("search_home").innerHTML=latcurr + "	" + longcurr;
+		console.log(latcurr + "-- ######## --" + longcurr);
+        currgeocoder = new google.maps.Geocoder();
+
+        //console.log(latcurr + "-- ######## --" + longcurr);
+
+        if (latcurr != '' && longcurr != '') {
+            //call google api function
+            var myLatlng = new google.maps.LatLng(latcurr, longcurr);
+            return getCurrentAddress(myLatlng);
+        }
+    }
+
+    //Get current address
+    function getCurrentAddress(location) {
+        currgeocoder.geocode({
+            'location': location
+        }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                console.log(results[0].formatted_address);
+                $("#address").html(results[0].formatted_address);
+				//document.getElementById("search_home").innerHTML= "check";
+				//$("#address").html(results[0].formatted_address);
+				//$('#search_home').val($("#address").html(results[0].formatted_address));
+				$('#search_home').val(results[0].formatted_address);
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+	}
+	</script>
+	
   </head>
 
   <body>
@@ -36,7 +94,7 @@
         </div>
         <div>
             &nbsp;&nbsp;
-            <button id="search_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button id="search_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="searchLocation()">Search</button>
         </div>
     </div>
 
