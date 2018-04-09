@@ -10,7 +10,6 @@
 /*.dropdown{
     text-align: center;
     position: relative;
-
 }*/
 .dropbtn {
     background-color: #4CAF50;
@@ -21,7 +20,7 @@
 }
 
 .dropdown {
-	display: block;
+    display: block;
     margin-left: auto;
     margin-right: auto;
     position: relative;

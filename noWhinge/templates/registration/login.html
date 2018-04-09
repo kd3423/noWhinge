@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
@@ -27,21 +28,25 @@
 <body>
     {% include 'navbar.html' %}
 
-    <div class="about_header">
+    <div class="w3-container w3-center">
         <h1>Login</h1>
     </div>
+    <div class="w3-container w3-display-middle">
 	<form method="post">
 	  {% csrf_token %}
 	  {{ form.as_p }}
+
 	  <button type="submit" class="btn btn-primary">Login</button>
 	  <br>
 	</form>
 	<br>
+
 <!-- 	<button href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-primary">Login with Google</button> -->
 	<a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-primary" >Login with Google</a><br>
 	<!-- <p><strong>-- OR --</strong></p>
 	<a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
 	 -->    
+      </div>
 
 </body>
 

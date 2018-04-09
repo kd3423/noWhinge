@@ -1,9 +1,14 @@
+
+
 {% load staticfiles %}
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
@@ -26,43 +31,29 @@
 <body>
     {% include 'navbar.html' %}
 
-    <div class="analysis_header">
-        <h1>Locality Analysis</h1>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn">Locality</button>
-      <div class="dropdown-content">
-        <a>Model Town</a>
-        <a>Malviya Nagar</a>
-        <a>IIITD</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn">Issue</button>
-      <div class="dropdown-content">
-        <a>Road Maintainence</a>
-        <a>Water</a>
-        <a>Electricity</a>
-      </div>
+    <!-- Making the page resonsive -->
+
+    <div class="w3-container w3-center w3-card-4 w3-green">
+      <h1>Locality Analysis</h1> 
     </div>
 
-    <!-- <div class="img">
-        <img src="https://drive.google.com/file/d/1qwgGwQTX6Kf0_Ezgdab6Oj2AZwnBVqTM/view?usp=sharing" alt="Early November Snow"/>
+    <div class="w3-container w3-card-4 w3-green" >
+        <h2> Issue</h2>
+        <select selected = "" class="w3-select" name="issue">
+            <option value=''></option>
+            <option value="Raod Maintainence">Road Maintainence</option>
+            <option value="Water">Water</option>
+            <option value="Electricity">Electricity</option>
+        </select>
+
+        <h2> Locality</h2>
+        <select selected = "" class="w3-select" name="Locality">
+            <option value=''></option>
+            <option value="Malviya Nagar">Malviya Nagar</option>
+            <option value="Model Town">Model Town</option>
+            <option value="IIITD">IIITD</option>
+        </select>
+        <br>
     </div>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <div class="container1">
-        <center>
-        <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Send</button>
-        </form>
-    </center>
-    </div> -->
-    <!-- Add font awesome icons -->
-    <!-- <a href="#" class="fa fa-facebook"></a>
-    <a href="#" class="fa fa-twitter"></a> -->
 
 </body>
