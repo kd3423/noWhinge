@@ -27,6 +27,9 @@ def complaintpage(request):
 
 def home(request):
 	return render(request, 'home.html')
+	
+def userProfile_page(request):
+	return render(request,"userProfile_page.html",{})
 
 	
 

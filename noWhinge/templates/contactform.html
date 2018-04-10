@@ -26,25 +26,42 @@
 <body>
     {% include 'navbar.html' %}
 
-    <div class="contact_header">
-        <h1>We would love to hear from you !</h1>
-    </div>
-    <div class="contact_detail">
-        <h2>nowhinge@gmail.com</h2>
+    <div class="page1">
+        <div class="contact_header">
+            <h1>We would love to hear from you !</h1>
+        </div>
+
+        <!-- Add font awesome icons -->
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a> -->
     </div>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <div class="container1">
-        <center>
-        <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Send</button>
-        </form>
-    </center>
+    <div class="page2">
+        <div class="contact_detail col-md-5">
+            <h1>Contact Us</h1>
+            <h2>nowhinge@gmail.com</h2>
+        </div>
+        <div class="container1 col-md-5">
+            <center>
+                <form name = "contact_form" enctype = "multipart/form-data" action = "{% url 'contact' %}" method = "POST" >{% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted"><font color="black">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="msg">Message</label>
+                        <input type="text" class="form-control" name="message" id="msg" placeholder="Type your message">
+                    </div>
+                    <button type="submit" id="submit_btn" class="btn btn-primary">Submit</button>
+                </form>
+            </center>
+        </div>
     </div>
-    <!-- Add font awesome icons -->
-    <a href="#" class="fa fa-facebook"></a>
-    <a href="#" class="fa fa-twitter"></a>
 
 </body>

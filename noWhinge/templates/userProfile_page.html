@@ -1,0 +1,335 @@
+<!-- AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg -->
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>noWhinge</title>
+<!-- google maps -->
+    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/pricing1.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<style>
+	/* Style the tab */
+	.tab {
+		overflow: hidden;
+		border: 1px solid #ccc;
+		background-color: #f1f1f1;
+	}
+
+	/* Style the buttons inside the tab */
+	.tab button {
+		background-color: inherit;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+		font-size: 17px;
+		width:50%;
+	}
+
+	/* Change background color of buttons on hover */
+	.tab button:hover {
+		background-color: #ddd;
+	}
+
+	/* Create an active/current tablink class */
+	.tab button.active {
+		background-color: #ccc;
+	}
+
+	/* Style the tab content */
+	.tabcontent {
+		display: none;
+		padding: 6px 12px;
+		border: 1px solid #ccc;
+		border-top: none;
+	}
+	</style>
+
+	<!--<script>
+        function initMap() {
+          var myLatLng = {lat: 28.696423, lng: 77.194936};
+
+          // Create a map object and specify the DOM element for display.
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: myLatLng,
+            zoom: 14
+          });
+
+          // Create a marker and set its position.
+          var marker = new google.maps.Marker({
+            map: map,
+            position: myLatLng,
+            title: 'Model Town',
+            draggable: true
+          });
+
+          google.maps.event.addListener(marker,'position_changed',function(){
+            var lat = marker.getPosition().lat();
+            var lng = marker.getPosition().lng();
+            //document.getElementById("myLat").value = lat;
+            //document.getElementById("myLon").value = lng;
+			
+			currgeocoder = new google.maps.Geocoder();
+			if (lat != '' && lng != '') {
+				//call google api function
+				var myLatlng = new google.maps.LatLng(lat, lng);
+				return getCurrentAddress(myLatlng);
+			}
+			//document.getElementById("myAdd").value = add;
+            //$('#lat').val(lat);
+            //$('#lng').val(lng);
+			//$('#add').val(add);
+            });
+			
+			//Get current address
+    function getCurrentAddress(location) {
+		boolean wait=false;
+		while(wait){};
+        currgeocoder.geocode({
+            'location': location
+        }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                console.log(results[0].formatted_address);
+				$('#add').val(results[0].formatted_address);
+            } 
+			else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) { 
+				wait = true;
+				setTimeout("wait = true", 2000);
+				//alert("OQL: " + status);
+			}else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+        }
+
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg&callback=initMap"
+          async defer></script>-->
+		<script>
+		function openComplaints(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+			document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " active";
+		}
+	</script>
+
+  </head>
+
+
+
+  <body>
+
+    {% include 'navbar.html' %}
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-5">User Profile</h1>
+    </div>
+
+    <div class="container">
+      <!--<h6>Move the marker to select the location</h6>-->
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4">
+          <!--<div class="card-header">
+            <h4 class="my-0 font-weight-normal">Register a Complaint</h4>
+          </div>-->
+          <div class="card-body">
+			<div><img src="">User image</div>
+			<div><button class="btn btn-outline-success my-2 my-sm-0">Change password</div><br>
+			<div><button class="btn btn-outline-success my-2 my-sm-0">Change contact</div><br>
+			<div><button class="btn btn-outline-success my-2 my-sm-0">Change location</div><br>
+            
+          </div>
+        </div>
+        <!--<div  style="width:650px;height:650px;background:gray">-->
+		<div  style="width:650px;height:650px">
+		<div class="tab">
+			<div><button class="tablinks" onclick="openComplaints(event, 'Ongoing')">Ongoing</button></div>
+			<div><button class="tablinks" onclick="openComplaints(event, 'Resolved')">Resolved</button></div>
+			
+		</div>
+
+		<div id="Ongoing" class="tabcontent">
+			<!--<h3>London</h3>
+			<p>London is the capital city of England.</p>-->
+			<div id="container">
+				<!--<div id="container">
+					<div style="width:33% display: inline-block;">
+						<div style="float:left;width:50%;display: inline-block;">Ref no.</div>
+						<div style="float:right;width:50%;display: inline-block;">Ref no.</div>
+					</div>
+					<div style="width:33% display: inline-block;">
+						<div style="float:left;width:50%;display: inline-block;">Location</div>
+						<div style="float:right;width:50%;display: inline-block;">Location</div>
+					</div>
+					<div style="float:right; width:33% display: inline-block;">
+						<div style="float:left;width:50%;display: inline-block;">issue</div>
+						<div style="float:right;width:50%;display: inline-block;">issue</div>
+					</div>	
+				</div>
+				<div>
+					<div style="float:left; width:40%"><input type="textarea"></div>
+					<div style="float:left; width:60%">
+						<div style="float:left"><Button id="share">Share</Button></div>
+						<div style="float:center"><Button id="resubmit">Resubmit</Button></div>
+						<div style="float:right"><Button id="resolve">Resolve</Button></div>
+					</div>
+				</div>-->
+				<div class="card-body w3-card-4">
+
+            <form name = "form" enctype = "multipart/form-data" 
+         action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
+              <div class="form-row">
+                  <label>Ref No.:</label>
+				  <label id="reference"></label>
+                  <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required>-->
+                </div>
+				<div class="mb-3">
+                  <label>Locality:</label>
+				  <label id="locality"></label>
+                  <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required> -->
+                </div>
+				
+                <div class="mb-3">
+                  <label>Issue:</label>
+				  <label id="issue"></label>
+                  <!--<input type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>-->
+                </div>
+              
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Problem Description</span>
+                </div>
+                <textarea class="form-control" name="desc" aria-label="With textarea"></textarea>
+              </div>
+			  
+			  <br>
+
+              <div class="form-row">
+			  <button class="btn btn-primary" type="submit">Share</button>&nbsp;
+			  <button class="btn btn-primary" type="submit">Resubmit</button>&nbsp;
+			  <button class="btn btn-primary" type="submit">Resolved</button>&nbsp;
+			  </div>
+            </form>
+			</div>
+          </div>
+			</div>
+		</div>
+
+		<div id="Resolved" class="tabcontent">
+			<h3>Paris</h3>
+			<p>Paris is the capital of France.</p> 
+		</div>
+		</div>
+		
+		</div>
+      </div>
+
+
+
+      <!-- <script>
+        function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(51.5, -0.12),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+      </script>
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg&callback=myMap">
+
+      </script> -->
+      <!--
+      To use this code on your website, get a free API key from Google.
+      Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+      -->
+
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <!-- <img class="mb-2" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24"> -->
+            <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Cool stuff</a></li>
+              <li><a class="text-muted" href="#">Random feature</a></li>
+              <li><a class="text-muted" href="#">Team feature</a></li>
+              <li><a class="text-muted" href="#">Stuff for developers</a></li>
+              <li><a class="text-muted" href="#">Another one</a></li>
+              <li><a class="text-muted" href="#">Last time</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Resource</a></li>
+              <li><a class="text-muted" href="#">Resource name</a></li>
+              <li><a class="text-muted" href="#">Another resource</a></li>
+              <li><a class="text-muted" href="#">Final resource</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Team</a></li>
+              <li><a class="text-muted" href="#">Locations</a></li>
+              <li><a class="text-muted" href="#">Privacy</a></li>
+              <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/holder.min.js' %}"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+  </body>
+</html>

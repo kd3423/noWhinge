@@ -27,14 +27,18 @@ html {
 } */
 
 .search_bar{
-    width: 1000px;
-    left: 33%;
-    top: 60%;
-    position: absolute;
+    margin: auto;
+    align-content: center;
+    position: relative;
 }
 
 .search_bar > div{
-    float: left;
+    display: inline-block;
+}
+
+.logo{
+    text-align: center;
+    padding: 100px 50px 100px 50px;
 }
 
 #search_home{
@@ -42,11 +46,16 @@ html {
 }
 
 .pricing-header{
-    left : 40%;
-    top : 30%;
+    text-align: center;
     position: absolute;
 }
 
 .navbar{
     background-color: #ffff00;
+}
+
+#submit_btn{
+    background-color: #2ebd4f;
+    border-color: #2ebd4f;
+    color: #ffffff;
 }

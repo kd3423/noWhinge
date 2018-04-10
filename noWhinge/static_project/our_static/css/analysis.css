@@ -56,3 +56,9 @@
     text-align: center;
     padding:0px 500px 0px 500px;
 }
+
+#submit_btn{
+    background-color: #2ebd4f;
+    border-color: #2ebd4f;
+    color: #ffffff;
+}
