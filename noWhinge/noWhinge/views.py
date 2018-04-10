@@ -33,8 +33,9 @@ def userProfile_page(request):
 	for i in complaints_data: #For itereating
 		print (i.user_name) #For getting this field data -- For checking which all fields are there check complaintform/models.py
 		print (i.locality)
+		print (i.resolved)
 		print ("-------")
-		
+
 	print (Complaints.objects.filter(user_name = request.user.get_username()))
 	return render(request,"userProfile_page.html",{})
 
