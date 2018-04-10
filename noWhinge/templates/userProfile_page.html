@@ -20,7 +20,8 @@
     <link href="{% static 'css/pricing1.css' %}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 	<style>
 	/* Style the tab */
@@ -166,7 +167,8 @@
             
           </div>
         </div>
-        <div  style="width:650px;height:650px;background:gray">
+        <!--<div  style="width:650px;height:650px;background:gray">-->
+		<div  style="width:650px;height:650px">
 		<div class="tab">
 			<div><button class="tablinks" onclick="openComplaints(event, 'Ongoing')">Ongoing</button></div>
 			<div><button class="tablinks" onclick="openComplaints(event, 'Resolved')">Resolved</button></div>
@@ -174,8 +176,71 @@
 		</div>
 
 		<div id="Ongoing" class="tabcontent">
-			<h3>London</h3>
-			<p>London is the capital city of England.</p>
+			<!--<h3>London</h3>
+			<p>London is the capital city of England.</p>-->
+			<div id="container">
+				<!--<div id="container">
+					<div style="width:33% display: inline-block;">
+						<div style="float:left;width:50%;display: inline-block;">Ref no.</div>
+						<div style="float:right;width:50%;display: inline-block;">Ref no.</div>
+					</div>
+					<div style="width:33% display: inline-block;">
+						<div style="float:left;width:50%;display: inline-block;">Location</div>
+						<div style="float:right;width:50%;display: inline-block;">Location</div>
+					</div>
+					<div style="float:right; width:33% display: inline-block;">
+						<div style="float:left;width:50%;display: inline-block;">issue</div>
+						<div style="float:right;width:50%;display: inline-block;">issue</div>
+					</div>	
+				</div>
+				<div>
+					<div style="float:left; width:40%"><input type="textarea"></div>
+					<div style="float:left; width:60%">
+						<div style="float:left"><Button id="share">Share</Button></div>
+						<div style="float:center"><Button id="resubmit">Resubmit</Button></div>
+						<div style="float:right"><Button id="resolve">Resolve</Button></div>
+					</div>
+				</div>-->
+				<div class="card-body w3-card-4">
+
+            <form name = "form" enctype = "multipart/form-data" 
+         action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
+              <div class="form-row">
+                  <label>Ref No.:</label>
+				  <label id="reference"></label>
+                  <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required>-->
+                </div>
+				<div class="mb-3">
+                  <label>Locality:</label>
+				  <label id="locality"></label>
+                  <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required> -->
+                </div>
+				
+                <div class="mb-3">
+                  <label>Issue:</label>
+				  <label id="issue"></label>
+                  <!--<input type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>-->
+                </div>
+              
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Problem Description</span>
+                </div>
+                <textarea class="form-control" name="desc" aria-label="With textarea"></textarea>
+              </div>
+			  
+			  <br>
+
+              <div class="form-row">
+			  <button class="btn btn-primary" type="submit">Share</button>&nbsp;
+			  <button class="btn btn-primary" type="submit">Resubmit</button>&nbsp;
+			  <button class="btn btn-primary" type="submit">Resolved</button>&nbsp;
+			  </div>
+            </form>
+			</div>
+          </div>
+			</div>
 		</div>
 
 		<div id="Resolved" class="tabcontent">
