@@ -23,7 +23,7 @@
 .members{
     text-align: center;
     position: relative;
-    padding:100px 100px 100px 100px;
+    padding:100px 140px 100px 140px;
 }
 
 .members > div{
@@ -32,12 +32,16 @@
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 250px;
-    height: 450px;
+    width: 350px;
+    height: 500px;
     text-align: center;
     padding: 20px;
     margin: 20px;
     display: block;
+}
+
+#name{
+    padding-top: 20px;
 }
 
 .title {
