@@ -90,6 +90,7 @@ AUTHENTICATION_BACKENDS = (
  'social_core.backends.facebook.FacebookOAuth2',  # for Facebook authentication
  
  'django.contrib.auth.backends.ModelBackend',
+ 'accounts.backends.SettingsBackend',
 )
 
 WSGI_APPLICATION = 'noWhinge.wsgi.application'
@@ -123,6 +124,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'accounts.UserCustom'
 
 
 # Internationalization
