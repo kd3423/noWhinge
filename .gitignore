@@ -3,5 +3,5 @@
 *.DS_Store
 
 *.sqlite3
-*.cpython-35
-*.cpython-36
+*.cpython-35.pyc
+*.cpython-36.pyc
