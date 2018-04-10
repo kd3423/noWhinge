@@ -27,7 +27,7 @@
         </ul>
         <form class="form-inline mt-2 mt-md-0" style="padding-top:10px;">
 		{% if user.is_authenticated %}
-		  <p><a class="btn btn-outline-success my-2 my-sm-0" href="">{{ user.username }}</a></p>
+		  <p><a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'userProfile' %}">{{ user.username }}</a></p>
           &nbsp;&nbsp;
 		  <p><a class="btn btn-outline-success my-2 my-sm-0" id="submit_btn" href="{% url 'logout' %}">Logout</a></p>
           <!--<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
