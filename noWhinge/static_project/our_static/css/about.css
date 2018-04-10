@@ -11,6 +11,7 @@
 #about_header{
     text-align: center;
     position: relative;
+    /* background-color: #ffffff; */
     padding: 100px 50px 0px 50px;
 }
 
@@ -24,22 +25,14 @@
     margin: 30px 0px 30px 0px;
 }
 
-#members{
+.members{
     text-align: center;
     position: relative;
-    padding:100px 300px 100px 300px;
+    padding:100px 100px 100px 100px;
 }
 
-.members_card{
-    position: absolute;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    left: 10%;
-}
-
-.members_card > div{
-    float: left;
+.members > div{
+    display: inline-block;
 }
 
 .card {
@@ -52,17 +45,13 @@
     display: block;
 }
 
-#card4{
-    position: relative;
-    left: 13%;
-}
-
-#card5{
-    position: relative;
-    left: 13%;
-}
-
 .title {
     color: grey;
     font-size: 18px;
+}
+
+#submit_btn{
+    background-color: #2ebd4f;
+    border-color: #2ebd4f;
+    color: #ffffff;
 }
