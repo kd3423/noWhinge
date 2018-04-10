@@ -1,14 +1,68 @@
-.navbar{
-    background-color: #ffff00;
+#page1{
+    height: 800px;
+    background-color: #c7dc94;
 }
 
-.about_header{
+#page2{
+    height: 1500px;
+    background-color:  #94dccf;
+}
+
+#about_header{
     text-align: center;
     position: relative;
     padding: 100px 50px 0px 50px;
 }
 
-.about_text{
+/* #about_header > h1{
+    co
+} */
+
+#about_text{
     text-align: center;
-    padding:0px 500px 0px 500px;
+    padding:0px 300px 0px 300px;
+    margin: 30px 0px 30px 0px;
+}
+
+#members{
+    text-align: center;
+    position: relative;
+    padding:100px 300px 100px 300px;
+}
+
+.members_card{
+    position: absolute;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    left: 10%;
+}
+
+.members_card > div{
+    float: left;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 400px;
+    height: 550px;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    display: block;
+}
+
+#card4{
+    position: relative;
+    left: 13%;
+}
+
+#card5{
+    position: relative;
+    left: 13%;
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
 }
