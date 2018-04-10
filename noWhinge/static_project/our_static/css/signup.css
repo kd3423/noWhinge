@@ -1,0 +1,19 @@
+#submit_btn{
+    background-color: #2ebd4f;
+    border-color: #2ebd4f;
+    color: #ffffff;
+}
+
+.signup{
+    text-align: center;
+    padding: 100px 100px 100px 100px;
+}
+
+.title{
+    padding-bottom: 100px;
+}
+
+.signup_form{
+    margin: auto;
+    width: 30%;
+}
