@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'css/about.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -25,25 +26,17 @@
 
 <body>
     {% include 'navbar.html' %}
-
-    <!-- <div id="pages">
-         <ul>
-             <li><a href="#about">Our Vision</a></li>
-             <li><a href="#members">Members</a></li>
-         </ul>
-    </div> -->
-
-    <!-- Page 1 -->
     <div id="page1">
         <a id="about" class="smooth"></a>
         <div id="about_header">
-          <h1>Our Vision</h1>
-          <br><br><br><br><br><br><br><br>
-          <h2>Why noWhinge?</h2>
+            <h1>Our Vision</h1>
+            <br><br><br><br><br><br>
         </div>
         <div id="about_text">
-          <br><br><br><br>
-          <p>Multiple departments of the government have separate web complaint portals. This can be hassle as the users have to figure out which government branch to contact, and within the branch which department. We plan to collate all forms in one portal, so that users can use a single platform for different grevencies. The UI for most portals are different and are not intuitive, we plan to make an easy to use interface. The data gathered will be analysed and problem based analysis of the region will be made public on the website - this will be the locality based review. We plan to make the review process user interactive. Lastly we plan to link social media to the problems so that they can gain limelight and won't be ignored.</p>
+            <br><br><br><br>
+            <h2>Why noWhinge?</h2>
+            <br><br><br><br>
+            <p>Multiple departments of the government have separate web complaint portals. This can be hassle as the users have to figure out which government branch to contact, and within the branch which department. We plan to collate all forms in one portal, so that users can use a single platform for different grevencies. The UI for most portals are different and are not intuitive, we plan to make an easy to use interface. The data gathered will be analysed and problem based analysis of the region will be made public on the website - this will be the locality based review. We plan to make the review process user interactive. Lastly we plan to link social media to the problems so that they can gain limelight and won't be ignored.</p>
         </div>
     </div>
 
@@ -51,36 +44,37 @@
     <div id="page2">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <a id="member_list" class="smooth"></a>
-        <div id="members">
+        <div class="members">
             <h2>Our Team</h2>
-        </div>
-        <div class="members_card">
+        <!-- </div>
+        <div class="members_card"> -->
+            <br><br><br><br>
             <div class="card" id="card1">
-              <img src="https://raw.githubusercontent.com/aakash525/noWhinge/master/noWhinge/members/aakash.png?token=ATrmP0t5rfAzBSgkCaKwxrhJH3-PL90Oks5axn5gwA%3D%3D" alt="Member1" style="width:100%">
+              <img src="https://raw.githubusercontent.com/kd3423/noWhinge/master/noWhinge/members/aakash.png?token=ATrmP970J2rn7FZQFeyQwi2zSK7grCxMks5a1dyTwA%3D%3D" alt="Member1" style="width:100%">
               <h1>Aakash Deep</h1>
               <p class="title">Front-end Developer</p>
               <p>IIIT-D</p>
             </div>
             <div class="card" id="card2">
-              <img src="https://raw.githubusercontent.com/aakash525/noWhinge/master/noWhinge/members/manshul.png?token=ATrmP0WFL2AUSoOtBJdNSiQaLmJM-ZOiks5axn7xwA%3D%3D" alt="Member2" style="width:100%">
+              <img src="https://raw.githubusercontent.com/kd3423/noWhinge/master/noWhinge/members/manshul.png?token=ATrmPxWvRmEGQjtDVb20zrhtdGgjMNd9ks5a1dzUwA%3D%3D" alt="Member2" style="width:100%">
               <h1>Manshul Belani</h1>
               <p class="title">Front-end Developer</p>
               <p>IIIT-D</p>
             </div>
             <div class="card" id="card3">
-              <img src="https://raw.githubusercontent.com/aakash525/noWhinge/master/noWhinge/members/karan.png?token=ATrmP6g-qQZHMI2P8TVGUwBTBNw_odUeks5axn7gwA%3D%3D" alt="Member3" style="width:100%">
+              <img src="https://raw.githubusercontent.com/kd3423/noWhinge/master/noWhinge/members/karan.png?token=ATrmP3m9xwxBuNt8mtqAzXoLPmp2yYX_ks5a1dzDwA%3D%3D" alt="Member3" style="width:100%">
               <h1>Karan Dabas</h1>
               <p class="title">Back-end Developer</p>
               <p>IIIT-D</p>
             </div>
             <div class="card" id="card4">
-              <img src="https://raw.githubusercontent.com/aakash525/noWhinge/master/noWhinge/members/raunak.png?token=ATrmP2V1EwfUIaLj2leUQlfEPPwIngIYks5axn8AwA%3D%3D" alt="Member4" style="width:100%">
+              <img src="https://raw.githubusercontent.com/kd3423/noWhinge/master/noWhinge/members/raunak.png?token=ATrmP3DzBX45Q2t89__7Ha1ARJl5VyXIks5a1dzrwA%3D%3D" alt="Member4" style="width:100%">
               <h1>Raunak Sinha</h1>
               <p class="title">Back-end Developer</p>
               <p>IIIT-D</p>
             </div>
             <div class="card" id="card5">
-              <img src="https://raw.githubusercontent.com/aakash525/noWhinge/master/noWhinge/members/ishbir.png?token=ATrmPw81LuTpGM0jT8S1g_Xq21dhBbphks5axn7DwA%3D%3D" alt="Member5" style="width:100%">
+              <img src="https://raw.githubusercontent.com/kd3423/noWhinge/master/noWhinge/members/ishbir.png?token=ATrmP_J2CGGrcOb6K3Opw_DYAQ_by9nsks5a1dyuwA%3D%3D" alt="Member5" style="width:100%">
               <h1>Ishbir Walia</h1>
               <p class="title">Back-end Developer</p>
               <p>IIIT-D</p>

@@ -28,13 +28,13 @@
 		{% if user.is_authenticated %}
 		  <p><a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'userProfile' %}">{{ user.username }}</a></p>
           &nbsp;&nbsp;
-		  <p><a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'logout' %}">Logout</a></p>
+		  <p><a class="btn btn-outline-success my-2 my-sm-0" id="submit_btn" href="{% url 'logout' %}">Logout</a></p>
           <!--<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
 		{% else %}
 		  <p><a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'login' %}">login</a></p>
           &nbsp;&nbsp;
-		  <p><a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'signup' %}">Signup</a></p>
+		  <p><a class="btn btn-outline-success my-2 my-sm-0" id="submit_btn" href="{% url 'signup' %}">Signup</a></p>
 		{% endif %}
         </form>
       </div>
