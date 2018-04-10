@@ -20,7 +20,8 @@
     <link href="{% static 'css/pricing1.css' %}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 	<style>
 	/* Style the tab */
@@ -166,7 +167,8 @@
             
           </div>
         </div>
-        <div  style="width:650px;height:650px;background:gray">
+        <!--<div  style="width:650px;height:650px;background:gray">-->
+		<div  style="width:650px;height:650px">
 		<div class="tab">
 			<div><button class="tablinks" onclick="openComplaints(event, 'Ongoing')">Ongoing</button></div>
 			<div><button class="tablinks" onclick="openComplaints(event, 'Resolved')">Resolved</button></div>
@@ -199,73 +201,27 @@
 						<div style="float:right"><Button id="resolve">Resolve</Button></div>
 					</div>
 				</div>-->
-				<div class="card-body">
+				<div class="card-body w3-card-4">
 
             <form name = "form" enctype = "multipart/form-data" 
          action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
-              <div class="form-row form-inline">
-                <div class="mb-3">
+              <div class="form-row">
                   <label>Ref No.:</label>
-                  <input type="text" class="form-control" placeholder="First name" name="first_name" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
+				  <label id="reference"></label>
+                  <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required>-->
                 </div>
 				<div class="mb-3">
                   <label>Locality:</label>
-                  <input type="text" class="form-control" placeholder="First name" name="first_name" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
+				  <label id="locality"></label>
+                  <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required> -->
                 </div>
+				
                 <div class="mb-3">
                   <label>Issue:</label>
-                  <input type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
+				  <label id="issue"></label>
+                  <!--<input type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>-->
                 </div>
-              </div>
-
-              <div class ="form-row">
-              <div class="col-md-5 mb-3">
-                  <label>Latitude</label>
-                  <input type="text" class="form-control" id="myLat" placeholder="Latitude" name="lat" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-                <div class="col-md-5 mb-3">
-                  <label>Longitude</label>
-                  <input type="text" class="form-control" id="myLon" placeholder="Longitude" name="lon" value="" required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-              </div>
-<!-- 
-              <div class ="form-row">
-                  <p>Lat:<span id="myLat" >  </span></p>
-                  <p> Lng:<span id="myLon" ></span></p>
-              </div> -->
-
-              <label class="my-0.2 mr-2" for="inlineFormCustomSelectPref">Select issue Tag</label>
-              <select class="custom-select my-1 mr-sm-2" name="issue" id="inlineFormCustomSelectPref">
-                <option selected>Choose...</option>
-                <option value="1">Road Maintenance</option>
-                <option value="2">Water Related</option>
-                <option value="3">Electricity Related</option>
-              </select>
-
-              <div class="form-row">
-                <div class="col-md-12 mb-3">
-                  <label for="validationServer03">Locality</label>
-                  <input type="text" class="form-control" id="validationServer03" name="locality" placeholder="Example: Model Town" required>
-                  <div class="invalid-feedback">
-                    Please provide a valid locality.
-                  </div>
-                </div>
-              </div>
+              
 
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -273,22 +229,16 @@
                 </div>
                 <textarea class="form-control" name="desc" aria-label="With textarea"></textarea>
               </div>
+			  
+			  <br>
 
-              <div class="custom-file my-4">
-                <input type="file" class="custom-file-input" id="customFile" name="photo">
-                <label class="custom-file-label" for="customFile">Attach an Image</label>
-              </div>
-
-              <div class="form-group">
-                <div class="form-check">
-                  <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
-                  <label class="form-check-label" for="invalidCheck3">
-                    Agree to terms and conditions
-                  </label>
-                </div>
-              </div>
-              <button class="btn btn-primary" type="submit">Submit form</button>
+              <div class="form-row">
+			  <button class="btn btn-primary" type="submit">Share</button>&nbsp;
+			  <button class="btn btn-primary" type="submit">Resubmit</button>&nbsp;
+			  <button class="btn btn-primary" type="submit">Resolved</button>&nbsp;
+			  </div>
             </form>
+			</div>
           </div>
 			</div>
 		</div>
