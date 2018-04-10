@@ -7,6 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
@@ -29,15 +30,32 @@
 <body>
     {% include 'navbar.html' %}
 
-    <div class="about_header">
-        <h1>Sign Up</h1>
+    <div class="w3-container w3-center">
+        <h1>Sign UP</h1>
     </div>
-	<form method="post">
-	  {% csrf_token %}
-	  {{ form.as_p }}
-	  <button type="submit" class="btn btn-primary">Sign up</button>
-	  <br>
-	</form>
-	<br>
+    <div class="w3-container w3-display-middle w3-card-4 w3-green">
+        <form class="w3-container">
+        <label>First Name</label>
+        <input class="w3-input" type="text">
+        <br>
+        <label>E-mail</label>
+        <input class="w3-input" type="email">
+        <br>
+        <label>Contact</label>
+        <input class="w3-input" type="number">
+        <br>
+        <label>Locality</label>
+        <input class="w3-input" type="text">
+        <br>
+        <label>Password</label>
+        <input class="w3-input" type="password">
+        <br>
+        <label>Re-submit Password</label>
+        <input class="w3-input" type="password">
+        <br>
+
+        </form>
+        <br>
+    </div>
 </body>
 

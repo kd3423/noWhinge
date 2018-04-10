@@ -37,23 +37,28 @@
       <h1>Locality Analysis</h1> 
     </div>
 
-    <div class="w3-container w3-card-4 w3-green" >
-        <h2> Issue</h2>
-        <select selected = "" class="w3-select" name="issue">
-            <option value=''></option>
-            <option value="Raod Maintainence">Road Maintainence</option>
-            <option value="Water">Water</option>
-            <option value="Electricity">Electricity</option>
-        </select>
+    <form name = "form" enctype = "multipart/form-data" 
+         action = "{% url 'analysis_page' %}" method = "POST" >{% csrf_token %}
 
-        <h2> Locality</h2>
-        <select selected = "" class="w3-select" name="Locality">
-            <option value=''></option>
-            <option value="Malviya Nagar">Malviya Nagar</option>
-            <option value="Model Town">Model Town</option>
-            <option value="IIITD">IIITD</option>
-        </select>
-        <br>
-    </div>
+        <div class="w3-container w3-card-4 w3-green" >
+            <h2> Issue</h2>
+            <select selected = "" class="w3-select" name="issue">
+                <option value=''></option>
+                <option value="Raod Maintainence">Road Maintainence</option>
+                <option value="Water">Water</option>
+                <option value="Electricity">Electricity</option>
+            </select>
+
+            <h2> Locality</h2>
+            <select selected = "" class="w3-select" name="locality">
+                <option value=''></option>
+                <option value="Malviya Nagar">Malviya Nagar</option>
+                <option value="Model Town">Model Town</option>
+                <option value="IIITD">IIITD</option>
+            </select>
+            <br>
+            <button type="submit" class="w3-button w3-black" value="Get">Get</button>
+        </div>
+    </form>
 
 </body>

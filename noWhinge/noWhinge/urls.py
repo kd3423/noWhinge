@@ -25,6 +25,9 @@ from noWhinge import views
 import noWhinge
 from complaintform import views
 import complaintform
+from analysis import views
+import analysis
+
 
 
 urlpatterns = [
@@ -33,7 +36,7 @@ urlpatterns = [
 	path('about_page/', noWhinge.views.about_page, name='about_page'),
     # path('contact_page/', noWhinge.views.contact_page, name='contact_page'),
     path('complaint_page/', complaintform.views.complaint_page, name='complaint_page'),
-    path('analysis_page/', noWhinge.views.analysis_page, name='analysis_page'),
+    path('analysis_page/', analysis.views.analysis_page, name='analysis_page'),
     path('admin/', admin.site.urls),
 	path('accounts/', include('accounts.urls')),
 	path('accounts/', include('django.contrib.auth.urls')),
