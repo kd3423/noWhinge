@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,render_to_response
 from .forms import ComplaintForm 
 from .settings import MEDIA_ROOT
 
-
+from complaintform.models import Complaints
 
 # Create your views here.
 def complaint_page(request):
@@ -29,6 +29,13 @@ def home(request):
 	return render(request, 'home.html')
 	
 def userProfile_page(request):
+	complaints_data=Complaints.objects.filter(user_name = request.user.get_username()) #This is a list of all complaints
+	for i in complaints_data: #For itereating
+		print (i.user_name) #For getting this field data -- For checking which all fields are there check complaintform/models.py
+		print (i.locality)
+		print ("-------")
+		
+	print (Complaints.objects.filter(user_name = request.user.get_username()))
 	return render(request,"userProfile_page.html",{})
 
 	
