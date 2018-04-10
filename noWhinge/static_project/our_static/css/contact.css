@@ -1,14 +1,49 @@
-.navbar{
-    background-color: #ffff00;
+.page1{
+    /* background-color:  #b3d8bb ; */
+    height: 365px;
 }
 
 .contact_header{
     text-align: center;
     position: relative;
+    top: 10%;
     padding: 100px 50px 200px 50px;
 }
 
 .contact_detail{
     text-align: center;
-    padding:0px 500px 0px 500px;
+    /* padding:0px 100px 0px 100px; */
+    margin-top: 200px;
+    float: left;
+}
+
+.form-text{
+    color: #000000;
+}
+
+.share_icon{
+    left: 48%;
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.page2{
+    background-color: #808080;
+    height: 500;
+}
+
+.page2 > div{
+        display: inline-block;
+}
+
+.container1{
+    padding: 100px;
+    /* float: right; */
+}
+
+#text{
+    float: left;
+    text-align: center;
+    padding: 10px;
 }
