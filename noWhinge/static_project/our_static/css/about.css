@@ -1,11 +1,12 @@
 #page1{
-    height: 800px;
+    /* height: 800px; */
     background-color: #c7dc94;
 }
 
 #page2{
     /* height: 1500px; */
     background-color:  #94dccf;
+    position: relative;
 }
 
 #about_header{
@@ -21,7 +22,7 @@
 
 #about_text{
     text-align: center;
-    padding:0px 300px 0px 300px;
+    padding:0px 100px 150px 100px;
     margin: 30px 0px 30px 0px;
 }
 
