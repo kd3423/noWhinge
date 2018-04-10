@@ -17,3 +17,7 @@ html {
     border-color: #2ebd4f;
     color: #ffffff;
 }
+
+.container > h6{
+    display: inline-block;
+}

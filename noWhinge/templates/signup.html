@@ -1,6 +1,3 @@
-
-
-
 {% load staticfiles %}
 <!doctype html>
 <html lang="en">
@@ -20,7 +17,7 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'css/analysis.css' %}" rel="stylesheet">
+    <link href="{% static 'css/signup.css' %}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -30,35 +27,29 @@
 <body>
     {% include 'navbar.html' %}
 
-    <div class="w3-container w3-center">
-        <h1>Sign UP</h1>
-    </div>
-    <div class="w3-container w3-display-middle w3-card-4 w3-green">
-        <form class="w3-container" name = "form" enctype = "multipartform-data" 
-         action = "{% url 'signup' %}" method = "POST" >
-         {% csrf_token %}
-        <label>First Name</label>
-        <input class="w3-input" name="name" type="text">
-        <br>
-        <label>E-mail</label>
-        <input class="w3-input" name="email" type="email">
-        <br>
-        <label>Contact</label>
-        <input class="w3-input" name="contact" type="number">
-        <br>
-        <label>Locality</label>
-        <input class="w3-input" name="locality" type="text">
-        <br>
-        <label>Password</label>
-        <input class="w3-input" name="password" type="password">
-        <br>
-        <label>Re-submit Password</label>
-        <input class="w3-input" name="re_password" type="password">
-        <br>
-        <button type="submit" class="w3-button w3-black" value="Get">Submit</button>
-
-        </form>
-        <br>
+    <div class="signup">
+        <div class="title">
+            <h1>Sign Up</h1>
+        </div>
+        <div class="signup_form">
+            <form name = "form" enctype = "multipartform-data"
+             action = "{% url 'signup' %}" method = "POST" >
+             {% csrf_token %}
+            <input class="form-control" name="name" type="text" placeholder="Frist Name">
+            <br>
+            <input class="form-control" name="E-mail" type="email" placeholder="email">
+            <br>
+            <input class="form-control" name="contact" type="text" placeholder="Contact Info">
+            <br>
+            <input class="form-control" name="locality" type="text" placeholder="Locality">
+            <br>
+            <input class="form-control" name="password" type="password" placeholder="Password">
+            <br>
+            <input class="form-control" name="re_password" type="password" placeholder="Confirm Password">
+            <br><br><br>
+            <button class="btn btn-outline-success" type="submit" value="Get">Submit</button>
+            </form>
+            <br>
+        </div>
     </div>
 </body>
-
