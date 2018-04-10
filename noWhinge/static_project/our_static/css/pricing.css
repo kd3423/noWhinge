@@ -50,3 +50,9 @@ html {
 .navbar{
     background-color: #ffff00;
 }
+
+#submit_btn{
+    background-color: #2ebd4f;
+    border-color: #2ebd4f;
+    color: #ffffff;
+}

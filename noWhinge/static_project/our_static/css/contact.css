@@ -47,3 +47,9 @@
     text-align: center;
     padding: 10px;
 }
+
+#submit_btn{
+    background-color: #2ebd4f;
+    border-color: #2ebd4f;
+    color: #ffffff;
+}
