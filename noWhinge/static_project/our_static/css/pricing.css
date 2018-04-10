@@ -12,24 +12,13 @@ html {
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
-/* .search_home{
-    width: 500px; //centered in the middle of the page
-    right: 0;
-    left: 33%;
-    top: 60%;
-    position: absolute;
+.search_home{
+    width: auto;
 }
-
-.search_btn{
-    left: 60.5%;
-    top : 60%;
-    position: absolute;
-} */
 
 .search_bar{
     margin: auto;
-    align-content: center;
-    position: relative;
+    width: 40%;
 }
 
 .search_bar > div{
