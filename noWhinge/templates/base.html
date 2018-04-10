@@ -68,7 +68,8 @@
 				//document.getElementById("search_home").innerHTML= "check";
 				//$("#address").html(results[0].formatted_address);
 				//$('#search_home').val($("#address").html(results[0].formatted_address));
-				$('#search_home').val(results[0].formatted_address);
+				//$('#search_home').val(results[0].formatted_address);
+				$('#search_home').val(results[0].address_components[2].long_name);
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
             }
