@@ -32,13 +32,24 @@
         <h1>Login</h1>
     </div>
     <div>
-	<form method="post">
+	<!--<form method="post">
 	  {% csrf_token %}
 	  {{ form.as_p }}
 
 	  <button class="btn btn-outline-success" type="submit">Login</button>
 	  <br>
-	</form>
+	</form>-->
+	
+	<form name = "form" enctype = "multipartform-data"
+             action = "{% url 'login' %}" method = "POST" >
+             {% csrf_token %}
+            <input class="form-control" name="username" type="text" placeholder="Username">
+            <br>
+            <input class="form-control" name="password" type="password" placeholder="Password">
+            <br><br><br>
+            <button class="btn btn-outline-success" type="submit" value="Get">Login</button>
+            </form>
+	
 	<br>
 
 <!-- 	<button href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-primary">Login with Google</button> -->
