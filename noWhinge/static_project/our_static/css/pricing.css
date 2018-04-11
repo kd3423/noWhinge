@@ -48,3 +48,19 @@ html {
     border-color: #2ebd4f;
     color: #ffffff;
 }
+
+.holder2 > div{
+    display: inline-block;
+}
+
+.holder-child1 {
+	padding:20px;
+	position:relative;
+	float:left;
+}
+
+.holder-child2 {
+	padding:20px;
+	position:relative;
+	float:right;
+}

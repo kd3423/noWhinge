@@ -69,13 +69,20 @@
 				//$("#address").html(results[0].formatted_address);
 				//$('#search_home').val($("#address").html(results[0].formatted_address));
 				//$('#search_home').val(results[0].formatted_address);
-				$('#search_home').val(results[0].address_components[2].long_name);
+				$('#search_home').val(results[0].address_components[3].long_name);
+				return showLocationBasedCards();
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
             }
         });
     }
+	
+	function showLocationBasedCards() {
+		document.getElementById("locationBasedCards").style.visibility='visible';
+		window.location.hash = '#locationBasedCards';
 	}
+	}
+	
 	</script>
 
   </head>
@@ -98,6 +105,12 @@
             <button id="search_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="searchLocation()">Detect Location</button>
         </div>
     </div>
+	<br><br>
+	<div id="locationBasedCards" class ="holder2" style="visibility:hidden">
+		<div class="holder-child1"><img src="https://raw.githubusercontent.com/kd3423/noWhinge/master/noWhinge/members/LogComplaintCard.jpg?token=AJHCd_Yp9HKTntJd97JV-i10Gajix1e5ks5a1kZiwA%3D%3D" alt="log a complaint card background" style="width:30%"></div>
+		<div class="holder-child2"><img src="https://raw.githubusercontent.com/kd3423/noWhinge/master/noWhinge/members/AnalysisCard.jpg?token=AJHCd7UGVHKeI9UiFZrAqimccYiNG7j0ks5a1kaKwA%3D%3D" alt="analysis card background" style="width:30%"></div>
+	</div>
+
 
     <!-- <div id = "search_home" class = "search_home">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
