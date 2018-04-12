@@ -6,6 +6,8 @@ from math import sin, cos, sqrt, atan2, radians
 dict_lat_lon = {'Model Town':[28.696423,77.194936],'IIITD':[28.545628,77.273150],'Malviya Nagar':[28.533520,77.210886]}
 lat_lon_list = []
 glob_center = [28.7040592, 77.1024902]
+resolved = [0,0]
+
 def cal_dist(lat1,lon1,lat2,lon2):
 	
 	# approximate radius of earth in km
@@ -34,6 +36,8 @@ def analysis_form(request):
 
 def analysis_page(request):
 	# print(request)
+	lat_lon_list = []
+	resolved = [0,0]
 	if request.method == "POST":
 		#Get the posted form
 		# print(request.POST)
@@ -46,22 +50,21 @@ def analysis_page(request):
 			locality= MyProfileForm.cleaned_data['locality']
 
 			center = [dict_lat_lon[locality][0],dict_lat_lon[locality][1]]
-			flag = 0
 			complaintsData = Complaints.objects.all()
 			for entry in complaintsData:
 				if issue == entry.issue and locality == entry.locality:
 					if cal_dist(dict_lat_lon[entry.locality][0],dict_lat_lon[entry.locality][1],float(entry.lat),float(entry.lon)) <= 5.00:
-						print(entry.first_name,entry.last_name,entry.lat,entry.lon,entry.issue)
+						# print(entry.first_name,entry.last_name,entry.lat,entry.lon,entry.issue)
 						lat_lon_list.append([float(entry.lat),float(entry.lon)])
-				else:
-					flag = 1
-			if flag == 1:
-				print('None Found :(')
-
-			print(lat_lon_list)
-			return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': center , 'zoom': 15})
+						if entry.resolved == 1:
+							resolved[0]+=1
+						else:
+							resolved[1]+=1
+			print(resolved)
+			# print(lat_lon_list)
+			return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': center , 'zoom': 15 , 'u_resolved': resolved})
 		else:
-			return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': glob_center , 'zoom': 12})
+			return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': glob_center , 'zoom': 12, 'u_resolved': resolved})
 	else:
-		return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': glob_center , 'zoom': 12})
+		return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': glob_center , 'zoom': 12 , 'u_resolved': resolved})
 
