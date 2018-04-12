@@ -73,9 +73,13 @@
 
         </div>
     </form>
-    </div>
-
     <div id="map"></div>
+    <div id="floating-panel">
+      <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+      <button onclick="changeGradient()">Change gradient</button>
+      <button onclick="changeRadius()">Change radius</button>
+      <button onclick="changeOpacity()">Change opacity</button>
+    </div>
     <script>
       var map, heatmap;
       var center_arr = {{ center|safe }};
@@ -95,34 +99,56 @@
         });
       }
 
-      var array1 = {{ lat_lon_list|safe }};
-
-      document.write(array1.length);
-      var new_array = [];
-      for (i=0;i<array1.length;i++){
-        new_array.push(new google.maps.LatLng(array1[i][0], array1[i][1]));
+      function toggleHeatmap() {
+        heatmap.setMap(heatmap.getMap() ? null : map);
       }
-      document.write(array1);
-      document.write('/////');
-      document.write(new_array.length);
-      delete new_array
+
+      function changeGradient() {
+        var gradient = [
+          'rgba(0, 255, 255, 0)',
+          'rgba(0, 255, 255, 1)',
+          'rgba(0, 191, 255, 1)',
+          'rgba(0, 127, 255, 1)',
+          'rgba(0, 63, 255, 1)',
+          'rgba(0, 0, 255, 1)',
+          'rgba(0, 0, 223, 1)',
+          'rgba(0, 0, 191, 1)',
+          'rgba(0, 0, 159, 1)',
+          'rgba(0, 0, 127, 1)',
+          'rgba(63, 0, 91, 1)',
+          'rgba(127, 0, 63, 1)',
+          'rgba(191, 0, 31, 1)',
+          'rgba(255, 0, 0, 1)'
+        ]
+        heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+      }
+
+      function changeRadius() {
+        heatmap.set('radius', heatmap.get('radius') ? null : 20);
+      }
+
+      function changeOpacity() {
+        heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
+      }
+
+
+      var array1 = {{ lat_lon_list|safe }};
+      // document.write(array1.length);
+
       // Heatmap data: 500 Points
       function getPoints() {
-
+        var new_array = [];
+        for (i=0;i<array1.length;i++){
+            document.write('=')
+            var get_lat_lon = new google.maps.LatLng(array1[i][0], array1[i][1]);
+            new_array.push(get_lat_lon);
+        }
         return new_array;
       }
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg&libraries=visualization&callback=initMap">
     </script>
-
-    <div id="floating-panel">
-      <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-      <button onclick="changeGradient()">Change gradient</button>
-      <button onclick="changeRadius()">Change radius</button>
-      <button onclick="changeOpacity()">Change opacity</button>
-    </div>
-    <div id="map"></div>
 
 
 </body>
