@@ -7,7 +7,7 @@ dict_lat_lon = {'Model Town':[28.696423,77.194936],'IIITD':[28.545628,77.273150]
 lat_lon_list = []
 glob_center = [28.7040592, 77.1024902]
 resolved = [0,0]
-
+complaint_count_list = [0,0,0]
 def cal_dist(lat1,lon1,lat2,lon2):
 	
 	# approximate radius of earth in km
@@ -38,6 +38,8 @@ def analysis_page(request):
 	# print(request)
 	lat_lon_list = []
 	resolved = [0,0]
+	# Road, water, electricity
+	complaint_count_list = [0,0,0]
 	if request.method == "POST":
 		#Get the posted form
 		# print(request.POST)
@@ -60,11 +62,20 @@ def analysis_page(request):
 							resolved[0]+=1
 						else:
 							resolved[1]+=1
-			print(resolved)
+				if locality == entry.locality:
+					if cal_dist(dict_lat_lon[entry.locality][0],dict_lat_lon[entry.locality][1],float(entry.lat),float(entry.lon)) <= 5.00:
+						if entry.issue == 'Road Maintenance':
+							complaint_count_list[0] +=1
+						elif entry.issue == 'Water Related':
+							complaint_count_list[1] +=1
+						elif entry.issue == 'Electricity Related':
+							complaint_count_list[2] +=1
+
+			# print(resolved)
 			# print(lat_lon_list)
-			return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': center , 'zoom': 15 , 'u_resolved': resolved})
+			return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': center , 'zoom': 15 , 'u_resolved': resolved, 'complaint_list': complaint_count_list})
 		else:
-			return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': glob_center , 'zoom': 12, 'u_resolved': resolved})
+			return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': glob_center , 'zoom': 12, 'u_resolved': resolved, 'complaint_list': complaint_count_list})
 	else:
-		return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': glob_center , 'zoom': 12 , 'u_resolved': resolved})
+		return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': glob_center , 'zoom': 12 , 'u_resolved': resolved, 'complaint_list': complaint_count_list})
 
