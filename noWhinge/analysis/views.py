@@ -6,6 +6,7 @@ from math import sin, cos, sqrt, atan2, radians
 # [lat,lon]
 dict_lat_lon = {'Model Town':[28.696423,77.194936],'IIITD':[28.545628,77.273150],'Malviya Nagar':[28.533520,77.210886]}
 lat_lon_list = list()
+glob_center = [28.7040592, 77.1024902]
 def cal_dist(lat1,lon1,lat2,lon2):
 	
 	# approximate radius of earth in km
@@ -44,8 +45,9 @@ def analysis_page(request):
 		if MyProfileForm.is_valid():
 			issue= MyProfileForm.cleaned_data['issue']        
 			locality= MyProfileForm.cleaned_data['locality']
-			print (issue,locality)
 
+			center = [dict_lat_lon[locality][0],dict_lat_lon[locality][1]]
+			flag = 0
 			complaintsData = Complaints.objects.all()
 			for entry in complaintsData:
 				if issue == entry.issue and locality == entry.locality:
@@ -53,9 +55,14 @@ def analysis_page(request):
 						print(entry.first_name,entry.last_name,entry.lat,entry.lon,entry.issue)
 						lat_lon_list.append([float(entry.lat),float(entry.lon)])
 				else:
-					print('None Found :(')
+					flag = 1
+			if flag == 1:
+				print('None Found :(')
 
-		print(lat_lon_list)
-		return render(request, 'analysis.html', {})
+			print(lat_lon_list)
+			return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': center , 'zoom': 15})
+		else:
+			return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': glob_center , 'zoom': 12})
 	else:
-		return render(request, 'analysis.html', {})
+		return render(request, 'analysis.html', {'lat_lon_list': lat_lon_list , 'center': glob_center , 'zoom': 12})
+

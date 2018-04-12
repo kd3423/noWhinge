@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>noWhinge</title>
+    <title>noWhinge-Analysis</title>
 <!-- google maps -->
     <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
 
@@ -23,6 +23,20 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 87%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 87%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
 
 </head>
 
@@ -56,7 +70,64 @@
             </select>
             <br>
             <button type="submit" class="w3-button w3-black" value="Get">Get</button>
+
         </div>
     </form>
+    </div>
+
+    <div id="map"></div>
+    <script>
+
+      // This example requires the Visualization library. Include the libraries=visualization
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
+
+      var map, heatmap;
+      var center_arr = {{ center|safe }};
+      var zz = {{zoom|safe}};
+      // document.write(zz);
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: zz,
+          center: {lat: center_arr[0], lng: center_arr[1]},
+          mapTypeId: google.maps.MapTypeId.HYBRID, 
+          labels:true
+        });
+
+        heatmap = new google.maps.visualization.HeatmapLayer({
+          data: getPoints(),
+          map: map
+        });
+      }
+
+      var array1 = {{ lat_lon_list|safe }};
+
+      document.write(array1.length);
+      var new_array = [];
+      for (i=0;i<array1.length;i++){
+        new_array.push(new google.maps.LatLng(array1[i][0], array1[i][1]));
+      }
+      document.write(array1);
+      document.write('/////');
+      document.write(new_array.length);
+      delete new_array
+      // Heatmap data: 500 Points
+      function getPoints() {
+
+        return new_array;
+      }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg&libraries=visualization&callback=initMap">
+    </script>
+
+    <div id="floating-panel">
+      <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+      <button onclick="changeGradient()">Change gradient</button>
+      <button onclick="changeRadius()">Change radius</button>
+      <button onclick="changeOpacity()">Change opacity</button>
+    </div>
+    <div id="map"></div>
+
 
 </body>
