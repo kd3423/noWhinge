@@ -3,3 +3,17 @@
     border-color: #2ebd4f;
     color: #ffffff;
 }
+
+.login{
+    text-align: center;
+    padding: 100px 100px 100px 100px;
+}
+
+.title{
+    padding-bottom: 100px;
+}
+
+.login_form{
+    margin: auto;
+    width: 30%;
+}

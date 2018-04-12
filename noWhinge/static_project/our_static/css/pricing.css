@@ -12,8 +12,9 @@ html {
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
-.search_home{
-    width: auto;
+.logo{
+    text-align: center;
+    padding: 100px 50px 100px 50px;
 }
 
 .search_bar{
@@ -21,17 +22,20 @@ html {
     width: 40%;
 }
 
+.search_home{
+    width: auto;
+}
+
 .search_bar > div{
     display: inline-block;
 }
 
-.logo{
-    text-align: center;
-    padding: 100px 50px 100px 50px;
-}
-
 #search_home{
     width: 500px;
+}
+
+.cards > div{
+    display: inline-block;
 }
 
 .pricing-header{
@@ -47,20 +51,4 @@ html {
     background-color: #2ebd4f;
     border-color: #2ebd4f;
     color: #ffffff;
-}
-
-.holder2 > div{
-    display: inline-block;
-}
-
-.holder-child1 {
-	padding:20px;
-	position:relative;
-	float:left;
-}
-
-.holder-child2 {
-	padding:20px;
-	position:relative;
-	float:right;
 }
