@@ -28,10 +28,6 @@
 <body>
     {% include 'navbar.html' %}
 
-    <div>
-        <h1>Login</h1>
-    </div>
-    <div>
 	<!--<form method="post">
 	  {% csrf_token %}
 	  {{ form.as_p }}
@@ -39,24 +35,30 @@
 	  <button class="btn btn-outline-success" type="submit">Login</button>
 	  <br>
 	</form>-->
-	
-	<form name = "form" enctype = "multipartform-data"
-             action = "{% url 'login' %}" method = "POST" >
-             {% csrf_token %}
+
+    <div class="login">
+        <div class="title">
+            <h1>Sign Up</h1>
+        </div>
+        <div class="login_form">
+    	    <form name = "form" enctype = "multipartform-data"
+                    action = "{% url 'login' %}" method = "POST" >
+                    {% csrf_token %}
             <input class="form-control" name="username" type="text" placeholder="Username">
             <br>
             <input class="form-control" name="password" type="password" placeholder="Password">
             <br><br><br>
             <button class="btn btn-outline-success" type="submit" value="Get">Login</button>
             </form>
-	
-	<br>
+            <br>
+            <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-outline-success" id="submit_btn" >Login with Google</a><br>
+        </div>
+    </div>
 
 <!-- 	<button href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-primary">Login with Google</button> -->
-	<a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-outline-success" id="submit_btn" >Login with Google</a><br>
+
 	<!-- <p><strong> OR </strong></p>
 	<a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
 	 -->
-      </div>
 
 </body>
