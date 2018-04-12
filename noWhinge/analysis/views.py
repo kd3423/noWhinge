@@ -2,10 +2,9 @@ from django.shortcuts import render,redirect
 from .forms import AnalysisForm
 from complaintform.models import Complaints
 from math import sin, cos, sqrt, atan2, radians
-
 # [lat,lon]
 dict_lat_lon = {'Model Town':[28.696423,77.194936],'IIITD':[28.545628,77.273150],'Malviya Nagar':[28.533520,77.210886]}
-lat_lon_list = list()
+lat_lon_list = []
 glob_center = [28.7040592, 77.1024902]
 def cal_dist(lat1,lon1,lat2,lon2):
 	
@@ -21,10 +20,10 @@ def cal_dist(lat1,lon1,lat2,lon2):
 
 	a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
 	c = 2 * atan2(sqrt(a), sqrt(1 - a))
+
 	# distance in KM
 	distance = R * c
 	return distance
-
 
 def analysis_form(request):
 	form = AnalysisForm(request.POST or None)
