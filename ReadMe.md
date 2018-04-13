@@ -1,12 +1,15 @@
 # noWhinge
 ## Getting Started
-Hello,
-We will be using django framework, its fairly easy. Also have added the virtual env. for the noWhinge Project.
-Remember the virtual env. is built using python3 binaries, so this means we will be doing everything in python3 :)
+Hey,
+We have built a public grievance platform using django framework, its fairly easy:)
 
-### Activate the env. 
+### Initial requirement 
+``pip3``
 
-```$ source webenv/bin/activate```
+### Install all requirements for the website
+
+```$ pip install -r requirements.txt```
+
 
 ### Run the server locally
 
