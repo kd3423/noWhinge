@@ -182,28 +182,6 @@
 			<!--<h3>London</h3>
 			<p>London is the capital city of England.</p>-->
 			<div id="container">
-				<!--<div id="container">
-					<div style="width:33% display: inline-block;">
-						<div style="float:left;width:50%;display: inline-block;">Ref no.</div>
-						<div style="float:right;width:50%;display: inline-block;">Ref no.</div>
-					</div>
-					<div style="width:33% display: inline-block;">
-						<div style="float:left;width:50%;display: inline-block;">Location</div>
-						<div style="float:right;width:50%;display: inline-block;">Location</div>
-					</div>
-					<div style="float:right; width:33% display: inline-block;">
-						<div style="float:left;width:50%;display: inline-block;">issue</div>
-						<div style="float:right;width:50%;display: inline-block;">issue</div>
-					</div>	
-				</div>
-				<div>
-					<div style="float:left; width:40%"><input type="textarea"></div>
-					<div style="float:left; width:60%">
-						<div style="float:left"><Button id="share">Share</Button></div>
-						<div style="float:center"><Button id="resubmit">Resubmit</Button></div>
-						<div style="float:right"><Button id="resolve">Resolve</Button></div>
-					</div>
-				</div>-->
 				<div class="card-body w3-card-4">
 
             <form name = "form" enctype = "multipart/form-data" 
@@ -244,11 +222,53 @@
 			</div>
           </div>
 			</div>
-		</div>
+		
 
 		<div id="Resolved" class="tabcontent">
-			<h3>Paris</h3>
-			<p>Paris is the capital of France.</p> 
+			<!--<h3>Paris</h3>
+			<p>Paris is the capital of France.</p> -->
+			<div id="container">
+				<div class="card-body w3-card-4">
+
+            <form name = "form" enctype = "multipart/form-data" 
+         action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
+              <div class="form-row">
+                  <label>Ref No.:</label>
+				  <label id="reference"></label>
+                  <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required>-->
+                </div>
+				<div class="mb-3">
+                  <label>Locality:</label>
+				  <label id="locality"></label>
+                  <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required> -->
+                </div>
+				
+                <div class="mb-3">
+                  <label>Issue:</label>
+				  <label id="issue"></label>
+                  <!--<input type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>-->
+                </div>
+              
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Problem Description</span>
+                </div>
+                <textarea class="form-control" name="desc" aria-label="With textarea"></textarea>
+              </div>
+			  
+			  <br>
+
+              <div class="form-row">
+			  <button class="btn btn-primary" type="submit">Share</button>&nbsp;
+			  <button class="btn btn-primary" type="submit"  disabled>Resubmit</button>&nbsp;
+			  <button class="btn btn-primary" type="submit"  disabled>Resolved</button>&nbsp;
+			  </div>
+            </form>
+			</div>
+          </div>
+			</div>
+		</div>
 		</div>
 		</div>
 		
