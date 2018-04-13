@@ -38,13 +38,13 @@
 
     <div class="login">
         <div class="title">
-            <h1>Sign Up</h1>
+            <h1>Log In</h1>
         </div>
         <div class="login_form">
     	    <form name = "form" enctype = "multipartform-data"
                     action = "{% url 'login' %}" method = "POST" >
                     {% csrf_token %}
-            <input class="form-control" name="username" type="text" placeholder="Username">
+            <input class="form-control" name="username" type="text" placeholder="E-mail">
             <br>
             <input class="form-control" name="password" type="password" placeholder="Password">
             <br><br><br>
