@@ -19,23 +19,26 @@ html {
 
 .search_bar{
     margin: auto;
-    width: 40%;
-}
-
-.search_home{
-    width: auto;
+    padding-bottom: 80px;
+    text-align: center;
 }
 
 .search_bar > div{
     display: inline-block;
+    padding: 5px;
 }
 
 #search_home{
     width: 500px;
 }
 
-.cards > div{
+.images{
+    text-align: center;
+}
+
+.images > div{
     display: inline-block;
+    padding: 20px;
 }
 
 .pricing-header{
