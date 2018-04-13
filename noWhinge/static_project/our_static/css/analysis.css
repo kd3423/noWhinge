@@ -7,10 +7,67 @@
     position: relative;
 }
 
-/*.dropdown{
+.title{
+    padding: 50px;
     text-align: center;
-    position: relative;
-}*/
+}
+
+.option{
+    margin: auto;
+    text-align: center;
+}
+
+.option > div{
+    display: inline-block;
+}
+
+.issue_dpdw{
+    padding: 20px;
+}
+
+.issue_dpdw > h2{
+    padding: 20px;
+    display: inline-block;
+}
+
+#issue{
+    color: #2ebd4f;
+    background-color: #ffffff;
+}
+
+.locality_dpdw{
+    padding: 20px;
+}
+
+.locality_dpdw > h2{
+    padding: 20px;
+    display: inline-block;
+}
+
+#locality{
+    color: #2ebd4f;
+    background-color: #ffffff;
+}
+
+#floating_panel{
+    text-align: center;
+}
+
+#floating_panel > div{
+    padding: 50px 5px 50px 5px;
+    display: inline-block;
+}
+
+#btn_group{
+    text-align: center;
+    padding: 50px;
+}
+
+#btn_group > div{
+    padding: 50px 5px 50px 5px;
+    display: inline-block;
+}
+
 .dropbtn {
     background-color: #4CAF50;
     color: white;

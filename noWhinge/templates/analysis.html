@@ -6,7 +6,6 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
@@ -45,42 +44,56 @@
 
     <!-- Making the page resonsive -->
 
-    <div class="w3-container w3-center w3-card-4 w3-green">
-      <h1>Locality Analysis</h1> 
-    </div>
-    <!-- form -->
-    <form name = "form" enctype = "multipart/form-data" 
-         action = "{% url 'analysis_page' %}" method = "POST" >{% csrf_token %}
-
-        <div class="w3-container w3-card-4 w3-green" >
-            <h2> Issue</h2>
-            <select selected = "" class="w3-select" name="issue">
-                <option value=''></option>
-                <option value="Road Maintenance">Road Maintenance</option>
-                <option value="Water Related">Water Related</option>
-                <option value="Electricity Related">Electricity Related</option>
-            </select>
-
-            <h2> Locality</h2>
-            <select selected = "" class="w3-select" name="locality">
-                <option value=''></option>
-                <option value="Malviya Nagar">Malviya Nagar</option>
-                <option value="Model Town">Model Town</option>
-                <option value="IIITD">IIITD</option>
-            </select>
-            <br>
-            <button type="submit" class="w3-button w3-black" value="Get">Get</button>
-
+    <div class="header_analysis">
+        <div class="title">
+          <h1>Locality Analysis</h1>
         </div>
-    </form>
+        <!-- form -->
+        <form name = "form" enctype = "multipart/form-data"
+             action = "{% url 'analysis_page' %}" method = "POST" >{% csrf_token %}
+
+            <div class="option">
+                <div class="issue_dpdw">
+                    <h2>Issue</h2>
+                    <select selected = "" name="issue" class="btn btn-outline-success" id="issue">
+                        <option value="">- - Select - -</option>
+                        <option value="Road Maintenance">Road Maintenance</option>
+                        <option value="Water Related">Water Related</option>
+                        <option value="Electricity Related">Electricity Related</option>
+                    </select>
+                </div>
+                <div class="locality_dpdw">
+                    <h2>Locality</h2>
+                    <select selected = "" name="locality" class="btn btn-outline-success" id="locality">
+                        <option value="">- - Select - -</option>
+                        <option value="Malviya Nagar">Malviya Nagar</option>
+                        <option value="Model Town">Model Town</option>
+                        <option value="IIITD">IIITD</option>
+                    </select>
+                    <br>
+                </div>
+                <div class="btn">
+                    <button type="submit" class="btn btn-outline-success" value="Get">Fetch</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
     <!-- display map -->
     <div id="map"></div>
-    <div id="floating-panel">
-      <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-      <button onclick="changeGradient()">Change gradient</button>
-      <button onclick="changeRadius()">Change radius</button>
-      <button onclick="changeOpacity()">Change opacity</button>
+    <div id="floating_panel">
+        <div>
+            <button class="btn btn-outline-success" onclick="toggleHeatmap()">Toggle Heatmap</button>
+        </div>
+        <div>
+            <button class="btn btn-outline-success" onclick="changeGradient()">Change gradient</button>
+        </div>
+        <div>
+            <button class="btn btn-outline-success" onclick="changeRadius()">Change radius</button>
+        </div>
+        <div>
+            <button class="btn btn-outline-success" onclick="changeOpacity()">Change opacity</button>
+        </div>
     </div>
 
 
@@ -97,7 +110,7 @@
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: zz,
           center: {lat: center_arr[0], lng: center_arr[1]},
-          mapTypeId: google.maps.MapTypeId.HYBRID, 
+          mapTypeId: google.maps.MapTypeId.HYBRID,
           labels:true
         });
 
@@ -157,7 +170,7 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg&libraries=visualization&callback=initMap">
     </script>
-    
+
 
     <!-- script for pie chart -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -191,13 +204,21 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
        <div id="chart_div"></div>
     <br/>
-    <div id="btn-group">
-      <button class="button button-blue" id="none">No Format</button>
-      <button class="button button-blue" id="scientific">Scientific Notation</button>
-      <button class="button button-blue" id="decimal">Decimal</button>
-      <button class="button button-blue" id="short">Short</button>
+    <div id="btn_group">
+        <div>
+            <button class="btn btn-outline-success" id="none">No Format</button>
+        </div>
+        <div>
+            <button class="btn btn-outline-success" id="scientific">Scientific Notation</button>
+        </div>
+        <div>
+            <button class="btn btn-outline-success" id="decimal">Decimal</button>
+        </div>
+        <div>
+            <button class="btn btn-outline-success" id="short">Short</button>
+        </div>
     </div>
-   
+
 
 <!-- script for bar chart -->
     <script>
