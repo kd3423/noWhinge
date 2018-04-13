@@ -86,7 +86,7 @@
             var lng = marker.getPosition().lng();
             //document.getElementById("myLat").value = lat;
             //document.getElementById("myLon").value = lng;
-			
+
 			currgeocoder = new google.maps.Geocoder();
 			if (lat != '' && lng != '') {
 				//call google api function
@@ -98,7 +98,7 @@
             //$('#lng').val(lng);
 			//$('#add').val(add);
             });
-			
+
 			//Get current address
     function getCurrentAddress(location) {
 		boolean wait=false;
@@ -109,8 +109,8 @@
             if (status == google.maps.GeocoderStatus.OK) {
                 console.log(results[0].formatted_address);
 				$('#add').val(results[0].formatted_address);
-            } 
-			else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) { 
+            }
+			else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
 				wait = true;
 				setTimeout("wait = true", 2000);
 				//alert("OQL: " + status);
@@ -167,7 +167,7 @@
 			<div><button class="btn btn-outline-success my-2 my-sm-0">Change password</div><br>
 			<div><button class="btn btn-outline-success my-2 my-sm-0">Change contact</div><br>
 			<div><button class="btn btn-outline-success my-2 my-sm-0">Change location</div><br>
-            
+
           </div>
         </div>
         <!--<div  style="width:650px;height:650px;background:gray">-->
@@ -175,7 +175,7 @@
 		<div class="tab">
 			<div><button class="tablinks" onclick="openComplaints(event, 'Ongoing')">Ongoing</button></div>
 			<div><button class="tablinks" onclick="openComplaints(event, 'Resolved')">Resolved</button></div>
-			
+
 		</div>
 
 		<div id="Ongoing" class="tabcontent">
@@ -184,7 +184,7 @@
 			<div id="container">
 				<div class="card-body w3-card-4">
 
-            <form name = "form" enctype = "multipart/form-data" 
+            <form name = "form" enctype = "multipart/form-data"
          action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
               <div class="form-row">
                   <label>Ref No.:</label>
@@ -196,13 +196,13 @@
 				  <label id="locality"></label>
                   <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required> -->
                 </div>
-				
+
                 <div class="mb-3">
                   <label>Issue:</label>
 				  <label id="issue"></label>
                   <!--<input type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>-->
                 </div>
-              
+
 
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -210,19 +210,19 @@
                 </div>
                 <textarea class="form-control" name="desc" aria-label="With textarea"></textarea>
               </div>
-			  
+
 			  <br>
 
               <div class="form-row">
-			  <button class="btn btn-primary" type="submit">Share</button>&nbsp;
-			  <button class="btn btn-primary" type="submit">Resubmit</button>&nbsp;
-			  <button class="btn btn-primary" type="submit">Resolved</button>&nbsp;
+			  <button class="btn btn-outline-success" type="submit">Share</button>&nbsp;
+			  <button class="btn btn-outline-success" type="submit">Resubmit</button>&nbsp;
+			  <button class="btn btn-outline-success" type="submit">Resolved</button>&nbsp;
 			  </div>
             </form>
 			</div>
           </div>
 			</div>
-		
+
 
 		<div id="Resolved" class="tabcontent">
 			<!--<h3>Paris</h3>
@@ -230,7 +230,7 @@
 			<div id="container">
 				<div class="card-body w3-card-4">
 
-            <form name = "form" enctype = "multipart/form-data" 
+            <form name = "form" enctype = "multipart/form-data"
          action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
               <div class="form-row">
                   <label>Ref No.:</label>
@@ -242,13 +242,13 @@
 				  <label id="locality"></label>
                   <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required> -->
                 </div>
-				
+
                 <div class="mb-3">
                   <label>Issue:</label>
 				  <label id="issue"></label>
                   <!--<input type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>-->
                 </div>
-              
+
 
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -256,13 +256,13 @@
                 </div>
                 <textarea class="form-control" name="desc" aria-label="With textarea"></textarea>
               </div>
-			  
+
 			  <br>
 
               <div class="form-row">
-			  <button class="btn btn-primary" type="submit">Share</button>&nbsp;
-			  <button class="btn btn-primary" type="submit"  disabled>Resubmit</button>&nbsp;
-			  <button class="btn btn-primary" type="submit"  disabled>Resolved</button>&nbsp;
+			  <button class="btn btn-outline-success" type="submit">Share</button>&nbsp;
+			  <button class="btn btn-outline-success" type="submit"  disabled>Resubmit</button>&nbsp;
+			  <button class="btn btn-outline-success" type="submit"  disabled>Resolved</button>&nbsp;
 			  </div>
             </form>
 			</div>
@@ -271,7 +271,7 @@
 		</div>
 		</div>
 		</div>
-		
+
 		</div>
       </div>
 
