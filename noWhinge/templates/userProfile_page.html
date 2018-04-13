@@ -125,7 +125,10 @@
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg&callback=initMap"
           async defer></script>-->
 		<script>
-		function openComplaints(evt, cityName) {
+		function openComplaints(evt, complaintType) {
+			//console.log({{complaint}});
+			var t={{complaint.count}};
+			console.log(t);
 			var i, tabcontent, tablinks;
 			tabcontent = document.getElementsByClassName("tabcontent");
 			for (i = 0; i < tabcontent.length; i++) {
@@ -135,7 +138,7 @@
 			for (i = 0; i < tablinks.length; i++) {
 				tablinks[i].className = tablinks[i].className.replace(" active", "");
 			}
-			document.getElementById(cityName).style.display = "block";
+			document.getElementById(complaintType).style.display = "block";
 		evt.currentTarget.className += " active";
 		}
 	</script>
