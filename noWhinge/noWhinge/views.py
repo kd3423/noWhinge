@@ -37,7 +37,8 @@ def userProfile_page(request):
 		print ("-------")
 
 	print (Complaints.objects.filter(user_name = request.user.get_username()))
-	return render(request,"userProfile_page.html",{})
+	return render(request,"userProfile_page.html",{'complaint':complaints_data})
+	#return {"complaint":complaints_data}
 
 	
 
