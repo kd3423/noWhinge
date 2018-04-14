@@ -2,17 +2,25 @@
     background-color: #c7dc94;
 }
 
-#about_header{
+/* #about_header{
     text-align: center;
     position: relative;
-    /* background-color: #ffffff; */
+    background-color: #ffffff;
     padding: 100px 50px 0px 50px;
-}
+} */
 
 #about_text{
     text-align: center;
     padding:0px 50px 100px 50px;
     margin: 30px 0px 30px 0px;
+}
+
+#about_text > h2{
+    font-size: 210%;
+}
+
+#about_text > p{
+    font-size: 110%;
 }
 
 #page2{
