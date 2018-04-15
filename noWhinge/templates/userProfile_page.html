@@ -124,30 +124,13 @@
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg&callback=initMap"
           async defer></script>-->
-		<script>
-		function openComplaints(evt, complaintType) {
-			//console.log({{complaint}});
-			var t={{complaint.count}};
-			console.log(t);
-			var i, tabcontent, tablinks;
-			tabcontent = document.getElementsByClassName("tabcontent");
-			for (i = 0; i < tabcontent.length; i++) {
-				tabcontent[i].style.display = "none";
-			}
-			tablinks = document.getElementsByClassName("tablinks");
-			for (i = 0; i < tablinks.length; i++) {
-				tablinks[i].className = tablinks[i].className.replace(" active", "");
-			}
-			document.getElementById(complaintType).style.display = "block";
-		evt.currentTarget.className += " active";
-		}
-	</script>
+		
 
   </head>
 
 
 
-  <body>
+  <body onload="populateCards()">
 
     {% include 'navbar.html' %}
 
@@ -181,26 +164,26 @@
 		<div id="Ongoing" class="tabcontent">
 			<!--<h3>London</h3>
 			<p>London is the capital city of England.</p>-->
-			<div id="container">
-				<div class="card-body w3-card-4">
+			<!--<div id="container">-->
+				<div id="problem_card" class="card-body w3-card-4">
 
             <form name = "form" enctype = "multipart/form-data"
          action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
               <div class="form-row">
                   <label>Ref No.:</label>
-				  <label id="reference"></label>
-                  <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required>-->
+				  <!--<label id="reference"></label>-->
+                  <input id="reference_o" type="text" class="form-control" placeholder="Ref. No." name="first_name" value="" required>
                 </div>
 				<div class="mb-3">
                   <label>Locality:</label>
-				  <label id="locality"></label>
-                  <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required> -->
+				  <!--<label id="locality"></label>-->
+                  <input id="locality_o" type="text" class="form-control" placeholder="First name" name="first_name" value="" required>
                 </div>
 
                 <div class="mb-3">
                   <label>Issue:</label>
-				  <label id="issue"></label>
-                  <!--<input type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>-->
+				  <!--<label id="issue"></label>-->
+                  <input id="issue_o" type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>
                 </div>
 
 
@@ -208,7 +191,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">Problem Description</span>
                 </div>
-                <textarea class="form-control" name="desc" aria-label="With textarea"></textarea>
+                <textarea id="description_o" class="form-control" name="desc" aria-label="With textarea"></textarea>
               </div>
 
 			  <br>
@@ -220,7 +203,7 @@
 			  </div>
             </form>
 			</div>
-          </div>
+          <!--</div>-->
 			</div>
 
 
@@ -228,25 +211,25 @@
 			<!--<h3>Paris</h3>
 			<p>Paris is the capital of France.</p> -->
 			<div id="container">
-				<div class="card-body w3-card-4">
+				<div id="problem_card_r" class="card-body w3-card-4">
 
                     <form name = "form" enctype = "multipart/form-data"
                  action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
                       <div class="info form-row">
                           <label>Ref No.:</label>
-        				  <label id="reference"></label>
-                          <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required>-->
+        				  <!--<label id="reference"></label>-->
+                          <input id="reference_r" type="text" class="form-control" placeholder="First name" name="first_name" value="" required>
                         </div>
         				<div class="mb-3">
                           <label>Locality:</label>
-        				  <label id="locality"></label>
-                          <!--<input type="text" class="form-control" placeholder="First name" name="first_name" value="" required> -->
+        				  <!--<label id="locality"></label>-->
+                          <input id="locality_r" type="text" class="form-control" placeholder="First name" name="first_name" value="" required>
                         </div>
 
                         <div class="mb-3">
                           <label>Issue:</label>
-        				  <label id="issue"></label>
-                          <!--<input type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>-->
+        				  <!--<label id="issue"></label>-->
+                          <input id="issue_r" type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>
                         </div>
 
 
@@ -254,7 +237,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text">Problem Description</span>
                         </div>
-                        <textarea class="form-control" name="desc" aria-label="With textarea"></textarea>
+                        <textarea id="description_r" class="form-control" name="desc" aria-label="With textarea"></textarea>
                       </div>
 
         			  <br>
@@ -268,6 +251,85 @@
              </div>
 			</div>
 		</div>
+		
+		<!--/////////////////////////////////////////////////////////////////////////////////////////-->
+		<script>
+		function populateCards(){
+			var t={{complaint}};
+			//console.log(typeof(t));
+			//console.log(t.length);
+			var resolved=0,unresolved=0;
+			var first_ongoing=0, first_resolved=0;
+			var problem=document.getElementById("problem_card");
+			var parent;
+			//if(t[0])
+			
+			//console.log(t[0].locality);
+			//document.getElementById("description").innerHTML=desc;
+			for (var i=0;i<t.length;i++)
+			{
+				if(t[i].resolved==0){
+					if(first_ongoing==0){
+						$("#description_o").val(t[i].desc);
+						$("#locality_o").val(t[i].locality);
+						$("#issue_o").val(t[i].issue);
+						first_ongoing=1;
+						//console.log("in if");
+					}
+					else{
+						//$( "#problem_card" ).clone().appendTo('Ongoing');
+						//console.log("in else");
+						var clone = problem.cloneNode(true);
+						parent=document.getElementById("Ongoing");
+						parent.appendChild(clone);
+						$("#locality_o").val(t[i].locality);
+						$("#description_o").val(t[i].desc);
+						$("#issue_o").val(t[i].issue);	
+					}	
+					unresolved++;
+				}
+				else{
+					if(first_resolved==0){
+						$("#description_r").val(t[i].desc);
+						$("#locality_r").val(t[i].locality);
+						$("#issue_r").val(t[i].issue);
+						first_ongoing=1;
+					}
+					else{
+						var clone = problem.cloneNode(true);
+						parent=document.getElementById("Ongoing");
+						parent.appendChild(clone);
+						$("#locality_r").val(t[i].locality);
+						$("#description_r").val(t[i].desc);
+						$("#issue_r").val(t[i].issue);	
+					}
+					resolved++;
+				}
+			}
+			if(resolved==0){
+				document.getElementById("problem_card_r").style.visibility='hidden';
+			}
+			if(unresolved==0){
+				document.getElementById("problem_card").style.visibility='hidden';
+			}
+		}
+		
+		function openComplaints(evt, complaintType) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+			document.getElementById(complaintType).style.display = "block";
+		evt.currentTarget.className += " active";
+		}
+	</script>
+		<!--///////////////////////////////////////////////////////////////////////////////////////-->
+		
 		</div>
 		</div>
 
