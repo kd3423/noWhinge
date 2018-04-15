@@ -124,7 +124,7 @@
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCZIWRUHV-aFGZyz42XGNUgPa8FgF1uGg&callback=initMap"
           async defer></script>-->
-		
+
 
   </head>
 
@@ -135,7 +135,7 @@
     {% include 'navbar.html' %}
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 class="display-5">User Profile</h1>
+      <h1 class="page_title display-5">User Profile</h1>
     </div>
 
     <div class="container">
@@ -156,52 +156,49 @@
         <!--<div  style="width:650px;height:650px;background:gray">-->
 		<div  style="width:650px;height:650px">
 		<div class="tab">
-			<div><button class="tablinks" onclick="openComplaints(event, 'Ongoing')">Ongoing</button></div>
-			<div><button class="tablinks" onclick="openComplaints(event, 'Resolved')">Resolved</button></div>
+			<div><button class="btn btn-outline-success tablinks" id="tab_btn" onclick="openComplaints(event, 'Ongoing')">Ongoing</button></div>
+			<div><button class="btn btn-outline-success tablinks" id="tab_btn" onclick="openComplaints(event, 'Resolved')">Resolved</button></div>
 
 		</div>
 
 		<div id="Ongoing" class="tabcontent">
-			<!--<h3>London</h3>
-			<p>London is the capital city of England.</p>-->
-			<!--<div id="container">-->
-				<div id="problem_card" class="card-body w3-card-4">
+				<div id="problem_card" class="card_body w3-card-4">
 
-            <form name = "form" enctype = "multipart/form-data"
-         action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
-              <div class="form-row">
-                  <label>Ref No.:</label>
-				  <!--<label id="reference"></label>-->
-                  <input id="reference_o" type="text" class="form-control" placeholder="Ref. No." name="first_name" value="" required>
-                </div>
-				<div class="mb-3">
-                  <label>Locality:</label>
-				  <!--<label id="locality"></label>-->
-                  <input id="locality_o" type="text" class="form-control" placeholder="First name" name="first_name" value="" required>
-                </div>
+                    <form name = "form" enctype = "multipart/form-data"
+                 action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
+                        <div class="form-row">
+                          <label>Ref No.:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        				  <label id="reference">1234</label>
+                          <!-- <input id="reference_o" type="text" class="form-control" placeholder="Ref. No." name="first_name" value="" required> -->
+                        </div>
+        				<div class="mb-3">
+                          <label>Locality:</label>
+        				  <!--<label id="locality"></label>-->
+                          <input id="locality_o" type="text" class="form-control" placeholder="First name" name="first_name" value="" required>
+                        </div>
 
-                <div class="mb-3">
-                  <label>Issue:</label>
-				  <!--<label id="issue"></label>-->
-                  <input id="issue_o" type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>
-                </div>
+                        <div class="mb-3">
+                          <label>Issue:</label>
+        				  <!--<label id="issue"></label>-->
+                          <input id="issue_o" type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>
+                        </div>
 
 
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Problem Description</span>
-                </div>
-                <textarea id="description_o" class="form-control" name="desc" aria-label="With textarea"></textarea>
-              </div>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Problem Description</span>
+                        </div>
+                        <textarea id="description_o" class="form-control" name="desc" aria-label="With textarea"></textarea>
+                      </div>
 
-			  <br>
+        			  <br>
 
-              <div class="ongoing form-row">
-    			  <button class="btn btn-outline-success" type="submit">Share</button>&nbsp;
-    			  <button class="btn btn-outline-success" type="submit">Resubmit</button>&nbsp;
-    			  <button class="btn btn-outline-success" type="submit">Resolved</button>&nbsp;
-			  </div>
-            </form>
+                      <div class="ongoing form-row">
+            			  <button class="btn btn-outline-success" type="submit">Share</button>&nbsp;
+            			  <button class="btn btn-outline-success" type="submit">Resubmit</button>&nbsp;
+            			  <button class="btn btn-outline-success" type="submit">Resolved</button>&nbsp;
+        			  </div>
+                    </form>
 			</div>
           <!--</div>-->
 			</div>
@@ -216,9 +213,9 @@
                     <form name = "form" enctype = "multipart/form-data"
                  action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
                       <div class="info form-row">
-                          <label>Ref No.:</label>
-        				  <!--<label id="reference"></label>-->
-                          <input id="reference_r" type="text" class="form-control" placeholder="First name" name="first_name" value="" required>
+                          <label>Ref No.:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        				  <label id="reference">1234</label>
+                          <!-- <input id="reference_r" type="text" class="form-control" placeholder="First name" name="first_name" value="" required> -->
                         </div>
         				<div class="mb-3">
                           <label>Locality:</label>
@@ -251,7 +248,7 @@
              </div>
 			</div>
 		</div>
-		
+
 		<!--/////////////////////////////////////////////////////////////////////////////////////////-->
 		<script>
 		function populateCards(){
@@ -263,7 +260,7 @@
 			var problem=document.getElementById("problem_card");
 			var parent;
 			//if(t[0])
-			
+
 			//console.log(t[0].locality);
 			//document.getElementById("description").innerHTML=desc;
 			for (var i=0;i<t.length;i++)
@@ -284,8 +281,8 @@
 						parent.appendChild(clone);
 						$("#locality_o").val(t[i].locality);
 						$("#description_o").val(t[i].desc);
-						$("#issue_o").val(t[i].issue);	
-					}	
+						$("#issue_o").val(t[i].issue);
+					}
 					unresolved++;
 				}
 				else{
@@ -301,7 +298,7 @@
 						parent.appendChild(clone);
 						$("#locality_r").val(t[i].locality);
 						$("#description_r").val(t[i].desc);
-						$("#issue_r").val(t[i].issue);	
+						$("#issue_r").val(t[i].issue);
 					}
 					resolved++;
 				}
@@ -313,7 +310,7 @@
 				document.getElementById("problem_card").style.visibility='hidden';
 			}
 		}
-		
+
 		function openComplaints(evt, complaintType) {
 			var i, tabcontent, tablinks;
 			tabcontent = document.getElementsByClassName("tabcontent");
@@ -329,7 +326,7 @@
 		}
 	</script>
 		<!--///////////////////////////////////////////////////////////////////////////////////////-->
-		
+
 		</div>
 		</div>
 

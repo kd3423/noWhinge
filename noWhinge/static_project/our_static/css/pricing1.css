@@ -12,6 +12,21 @@ html {
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
+.page_title{
+    padding-bottom: 40px;
+}
+
+#problem_card{
+    padding: 30px;
+    margin: 20px;
+}
+
+#tab_btn:hover{
+    background-color: #2ebd4f;
+    border-color: #2ebd4f;
+    color: #ffffff;
+}
+
 #submit_btn{
     background-color: #2ebd4f;
     border-color: #2ebd4f;
