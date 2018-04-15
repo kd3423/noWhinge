@@ -55,6 +55,11 @@
 			var position=marker.getPosition();
 			var latcurr = position.lat();
 			var longcurr=position.lng();
+      document.getElementById("myLat").value = latcurr;
+      document.getElementById("myLon").value = longcurr;
+      $('#myLat').val(latcurr);
+      $('#myLon').val(longcurr);
+            
 			//alert(lat);
 			if (latcurr != '' && longcurr != '') {
             //call google api function
@@ -157,11 +162,18 @@
                   </div>
                 </div>
               </div>
-<!--
-              <div class ="form-row">
-                  <p>Lat:<span id="myLat" >  </span></p>
-                  <p> Lng:<span id="myLon" ></span></p>
-              </div> -->
+
+              <div class ="form-row" style="visibility: hidden; height: 1px">
+                  <input type="text" class="form-control" id="myLat" placeholder="Latitude" name="lat" value="" required>
+
+                <input type="text" class="form-control" id="myLon" placeholder="Longitude" name="lon" value="" required>
+              </div>
+
+<!-- 
+              <div class ="form-row" >
+                  <in>Lat:<span id="myLat" name="lat">  </span></p>
+                  <p> Lng:<span id="myLon" name="lon" ></span></p>
+              </div>  -->
 
               <label class="my-0.2 mr-2" for="inlineFormCustomSelectPref">Select issue Tag</label>
               <select class="custom-select my-1 mr-sm-2" name="issue" id="inlineFormCustomSelectPref">
