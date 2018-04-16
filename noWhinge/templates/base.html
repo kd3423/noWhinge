@@ -31,7 +31,7 @@
         geo_loc = processGeolocationResult(position);
         currLatLong = geo_loc.split(",");
         initializeCurrent(currLatLong[0], currLatLong[1]);
-    },function(e){console.log(e);},{timeout:10000});
+    },function(e){console.log(e);},{timeout:20000});
 
     //Get geo location result
     function processGeolocationResult(position) {
