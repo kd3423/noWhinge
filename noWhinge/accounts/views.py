@@ -40,7 +40,16 @@ def SignUp_test(request):
 
 
 			print(' before user save')
-			profile.save()
+			# profile.save()
+			tt = UserCustom.objects.filter(username=profile.username)
+			if(tt is not None):
+				#user exists
+				return render(request,'signup.html',{'submit':1})
+			elif(profile.password != MyProfileForm.cleaned_data['re_password']):
+				#password not same
+				return render(request,'signup.html',{'submit':2})
+			else:
+				profile.save()
 			print('post user save')
 
 			# t=authenticate_test(profile.username,profile.password)
@@ -52,11 +61,11 @@ def SignUp_test(request):
 				return redirect("/")
 			else:
 				print('authenticate failed')
-				return render(request, 'signup.html', {})		
-		return render(request, 'signup.html', {})
+				return render(request, 'signup.html', {'submit':0})		
+		return render(request, 'signup.html', {'submit':0})
 	else:
 		
-		return render(request, 'signup.html', {})
+		return render(request, 'signup.html', {'submit':0})
 
 def authenticate_test(usr,pas):
 	tt=UserCustom.objects.get(username=usr)
