@@ -44,7 +44,7 @@
     	    <form name = "form" enctype = "multipartform-data"
                     action = "{% url 'login' %}" method = "POST" >
                     {% csrf_token %}
-            <input class="form-control" name="username" type="text" placeholder="E-mail">
+            <input class="form-control" name="username" type="text" placeholder="Email">
             <br>
             <input class="form-control" name="password" type="password" placeholder="Password">
             <br><br><br>
