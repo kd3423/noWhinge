@@ -47,3 +47,5 @@ def userProfile_page(request):
 
 	
 
+def thankyou(request):
+	return render(request,'thankYou.html',{})

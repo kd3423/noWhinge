@@ -44,11 +44,10 @@ def complaint_page(request):
 				profile.save()
 				print('post save')
 				print(request.POST)
-
 				saved = True
-				return redirect("/")
-			return render(request, 'complaint_page.html', {})
+				return render(request, 'thankYou.html', {'valid':1,'ref_no':profile.ref_no})
+			return render(request, 'complaint_page.html', {'valid':0, 'ref_no':'NA'})
 		else:
 			return redirect('/accounts/login') #Redirect to the login page if not authenticated 
 	else:
-		return render(request, 'complaint_page.html', {})
+		return render(request, 'complaint_page.html', {'valid':0})

@@ -34,6 +34,7 @@ urlpatterns = [
 	path('', newsletter.views.home, name='home'),
 	path('contact/', contact.views.contact, name='contact'),
 	path('about_page/', noWhinge.views.about_page, name='about_page'),
+    path('thank_you/', noWhinge.views.thankyou, name='thank_you'),
 	path('userProfile/', noWhinge.views.userProfile_page, name='userProfile'),
     # path('contact_page/', noWhinge.views.contact_page, name='contact_page'),
     path('complaint_page/', complaintform.views.complaint_page, name='complaint_page'),

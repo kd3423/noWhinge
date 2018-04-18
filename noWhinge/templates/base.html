@@ -105,7 +105,7 @@
 				//$("#address").html(results[0].formatted_address);
 				//$('#search_home').val($("#address").html(results[0].formatted_address));
 				//$('#search_home').val(results[0].formatted_address);
-				$('#search_home').val(results[0].address_components[3].long_name);
+				$('#search_home').val(results[0].address_components[2].long_name+results[0].address_components[3].long_name);
 
 				return showLocationBasedCards();
             } else {
