@@ -62,7 +62,7 @@ def SignUp_test(request):
 			else:
 				print('authenticate failed')
 				return render(request, 'signup.html', {'submit':0})		
-		return render(request, 'signup.html', {'submit':0})
+		return render(request, 'signup.html', {'submit':4})
 	else:
 		
 		return render(request, 'signup.html', {'submit':0})

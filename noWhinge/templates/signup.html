@@ -34,7 +34,14 @@
         <div class="signup_form">
             <form name = "form" enctype = "multipartform-data"
              action = "{% url 'signup' %}" method = "POST" >
-             Hello
+             {% if submit == 1 %}
+		<font color="red">Email already Registered!!!</font>
+	     {% elif submit == 2 %}
+		<font color="red">Password does not match!!!</font>
+	     {% elif submit == 4 %}
+		<font color="red">Missing Fields!!!</font>
+	     {% else %}
+	     {% endif %}
              {% csrf_token %}
             <input class="form-control" name="name" type="text" placeholder="First Name">
             <br>
