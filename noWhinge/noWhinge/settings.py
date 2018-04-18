@@ -26,7 +26,7 @@ SECRET_KEY = 'vclw!f%-fr8y4&5#$+1ez7cl_g_xi)n36@ge2y$mlnhbe&z838'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nowhinge.pythonanywhere.com']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'nowhingeteam@gmail.com'

@@ -129,7 +129,7 @@
     {% include 'navbar.html' %}
 
     <div class="logo">
-      <img src="https://raw.githubusercontent.com/kd3423/noWhinge/master/noWhinge/members/logo_final1.png?token=ATrmP5f8-439WZPQfl77Oa3BTxB0_EjMks5a1gvOwA%3D%3D" alt="noWhinge logo" style="width:50%">
+      <img src="{% static 'logo_final1.png' %}" alt="noWhinge logo" style="width:50%">
     </div>
       <!-- <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p> -->
 
@@ -143,7 +143,7 @@
     </div>
 	<br><br>
 
-    <div class="images" style="visibility:visible">
+    <div class="images" style="visibility:hidden">
 
         <div class="complaint">
             <a class="nav-link" href="{% url 'complaint_page' %}">
@@ -156,13 +156,6 @@
             </a>
         </div>
     </div>
-
-    <!-- <div id = "search_home" class = "search_home">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-    </div>
-    <div class = "search_btn">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </div> -->
 
 
     <!-- Bootstrap core JavaScript

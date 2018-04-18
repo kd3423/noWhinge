@@ -1,0 +1,47 @@
+.contact_header{
+    text-align: center;
+    position: relative;
+    top: 10%;
+    padding: 100px 50px 150px 50px;
+}
+
+.contact_detail{
+    text-align: center;
+    margin-top: 200px;
+    float: left;
+}
+
+.form-text{
+    color: #000000;
+}
+
+.share_icon{
+    left: 48%;
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.page2{
+    background-color: #808080;
+}
+
+.page2 > div{
+        display: inline-block;
+}
+
+.container1{
+    padding: 120px;
+}
+
+#text{
+    float: left;
+    text-align: center;
+    padding: 10px;
+}
+
+#submit_btn{
+    background-color: #2ebd4f;
+    border-color: #2ebd4f;
+    color: #ffffff;
+}

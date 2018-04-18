@@ -1,6 +1,7 @@
+{% load staticfiles %}
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <a class="nav-link" href="{% url 'home' %}">
-        <img src="https://raw.githubusercontent.com/kd3423/noWhinge/master/noWhinge/members/logo_nav1.png?token=ATrmP1l0YyD0Xx7fxLAqO-jqB494wWHiks5a1g0gwA%3D%3D" href="{% url 'home' %}" alt="noWhinge" width="180" height="70">
+        <img src="{% static 'logo_nav1.png' %}" href="{% url 'home' %}" alt="noWhinge" width="180" height="70">
     &nbsp;&nbsp;&nbsp;&nbsp;
     </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
