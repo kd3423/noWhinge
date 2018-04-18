@@ -2,10 +2,11 @@ from django.shortcuts import render,redirect
 from .forms import ComplaintForm 
 from .models import Complaints
 import datetime
-
+import random,string
 # Create your views here.
-
-
+def ref_no():
+	x = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
+	return x
 def complaintform(request):
 	form = ComplaintForm(request.POST or None)
 	context = {
@@ -38,6 +39,7 @@ def complaint_page(request):
 				profile.lon=MyProfileForm.cleaned_data['lon']
 				profile.date=datetime.datetime.now()
 				profile.photo=MyProfileForm.cleaned_data['photo']
+				profile.ref_no=ref_no()
 				print('before save')
 				profile.save()
 				print('post save')

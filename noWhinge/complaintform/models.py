@@ -12,6 +12,6 @@ class Complaints(models.Model):
 	locality = models.CharField(max_length=50)
 	desc=models.CharField(max_length=100)
 	photo = models.ImageField(upload_to = 'pictures',default='noWhinge_Logo.png')
-
+	ref_no = models.CharField(max_length=50)
 	class Meta:
 		db_table = "Complaints"

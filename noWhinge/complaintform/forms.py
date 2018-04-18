@@ -11,6 +11,7 @@ class ComplaintForm(forms.Form):
 	# locality = forms.MultipleChoiceField()
 	desc = forms.CharField(max_length=1500,required=False)
 	photo = forms.ImageField(required=False)
+	ref_no = forms.CharField()
 	# file = forms.FileField()
 	
 	def clean_first_name(self):
@@ -35,3 +36,4 @@ class ComplaintForm(forms.Form):
 
 	def clean_locality(self):
 		return self.cleaned_data.get("locality")
+
