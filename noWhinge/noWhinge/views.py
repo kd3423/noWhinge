@@ -32,15 +32,20 @@ def home(request):
 	return render(request, 'home.html')
 	
 def userProfile_page(request):
+	if(request.method=="POST"):
+		# print(request.POST)
+		complaints_data=Complaints.objects.filter(user_name = request.user.get_username()) #This is a list of all complaints
+		comp = complaints_data.get(ref_no=request.POST.get('reference',""))
+		print(comp)
+		comp.resolved=1
+		comp.save()
+		
+	
+	print('hi')
 	complaints_data=Complaints.objects.filter(user_name = request.user.get_username()) #This is a list of all complaints
-	#for i in complaints_data: #For itereating
-	#	print (i.user_name) #For getting this field data -- For checking which all fields are there check complaintform/models.py
-	#	print (i.locality)
-	#	print (i.resolved)
-	#	print ("-------")
 
 	complaint=json.dumps(list(complaints_data.values()),cls=DjangoJSONEncoder)
-	print(complaint)
+	# print(complaint)
 	#print (Complaints.objects.filter(user_name = request.user.get_username()))
 	return render(request,"userProfile_page.html",{'complaint':mark_safe(complaint)})
 	#return {"complaint":complaints_data}

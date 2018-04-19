@@ -165,22 +165,22 @@
 				<div id="problem_card" class="card_body w3-card-4">
 
                     <form name = "form" enctype = "multipart/form-data"
-                 action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
+                 action = "{% url 'userProfile' %}" method = "POST" >{% csrf_token %}
                         <div class="form-row">
                           <label>Ref No.:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        				  <label id="reference">1234</label>
+        				          <input type="text" name="reference" id="reference" class="form-control" placeholder="reference" value="" readonly>
                           <!-- <input id="reference_o" type="text" class="form-control" placeholder="Ref. No." name="first_name" value="" required> -->
                         </div>
         				<div class="mb-3">
                           <label>Locality:</label>
         				  <!--<label id="locality"></label>-->
-                          <input id="locality_o" type="text" class="form-control" placeholder="First name" name="first_name" value="" required>
+                          <input id="locality_o" type="text" class="form-control" placeholder="locality" name="locality" value="" required>
                         </div>
 
                         <div class="mb-3">
                           <label>Issue:</label>
         				  <!--<label id="issue"></label>-->
-                          <input id="issue_o" type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>
+                          <input id="issue_o" type="text" class="form-control" placeholder="issue" name="issue" value="" required>
                         </div>
 
 
@@ -196,7 +196,7 @@
                       <div class="ongoing form-row">
             			  <button class="btn btn-outline-success" type="submit">Share</button>&nbsp;
             			  <button class="btn btn-outline-success" type="submit">Resubmit</button>&nbsp;
-            			  <button class="btn btn-outline-success" type="submit">Resolved</button>&nbsp;
+            			  <button class="btn btn-outline-success" type="submit">Resolve</button>&nbsp;
         			  </div>
                     </form>
 			</div>
@@ -211,22 +211,22 @@
 				<div id="problem_card_r" class="card-body w3-card-4">
 
                     <form name = "form" enctype = "multipart/form-data"
-                 action = "{% url 'complaint_page' %}" method = "POST" >{% csrf_token %}
+                 action = "{% url 'userProfile' %}" method = "POST" >{% csrf_token %}
                       <div class="info form-row">
                           <label>Ref No.:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        				  <label id="reference">1234</label>
+        				       <input type="text" name="reference" id="reference" class="form-control" placeholder="reference" value="" readonly>
                           <!-- <input id="reference_r" type="text" class="form-control" placeholder="First name" name="first_name" value="" required> -->
                         </div>
         				<div class="mb-3">
                           <label>Locality:</label>
         				  <!--<label id="locality"></label>-->
-                          <input id="locality_r" type="text" class="form-control" placeholder="First name" name="first_name" value="" required>
+                          <input id="locality_r" type="text" class="form-control" placeholder="locality" name="locality" value="" required>
                         </div>
 
                         <div class="mb-3">
                           <label>Issue:</label>
         				  <!--<label id="issue"></label>-->
-                          <input id="issue_r" type="text" class="form-control" placeholder="Last name" name="last_name" value="" required>
+                          <input id="issue_r" type="text" class="form-control" placeholder="issue" name="issue" value="" required>
                         </div>
 
 
@@ -265,6 +265,7 @@
 			//document.getElementById("description").innerHTML=desc;
 			for (var i=0;i<t.length;i++)
 			{
+        $("#reference").val(t[i].ref_no);
 				if(t[i].resolved==0){
 					if(first_ongoing==0){
 						$("#description_o").val(t[i].desc);

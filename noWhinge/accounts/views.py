@@ -42,8 +42,13 @@ def SignUp_test(request):
 			print(' before user save')
 			# profile.save()
 			tt = UserCustom.objects.filter(username=profile.username)
+<<<<<<< Updated upstream
 			print(tt) 
 			if len(tt) >0:
+=======
+			print(tt)
+			if(len(tt)>0):
+>>>>>>> Stashed changes
 				#user exists
 				return render(request,'signup.html',{'submit':1})
 			elif(profile.password != MyProfileForm.cleaned_data['re_password']):
