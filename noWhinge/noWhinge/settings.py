@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'complaintform',
     'social_django',
 ]
-# SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
